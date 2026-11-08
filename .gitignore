@@ -1,0 +1,14 @@
+﻿# Archives and large bundles
+*.zip
+*.rar
+*.tar.gz
+
+# Temporary browser cache and OS files
+temp_edge*/
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# Scripts
+*.ps1

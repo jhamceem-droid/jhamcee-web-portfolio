@@ -1,0 +1,4061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jhamcee Eve Miran | Visual Artist • Video Editor • Customer Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- YouTube IFrame API for Background Music -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <style>
+    /* Reset & Base System */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Luxury Gradient Black & Glittery Gold Theme */
+      --bg-black: #080706;
+      --bg-charcoal: #0e0c0a;
+      --bg-surface: #14110e;
+      --bg-card: rgba(18, 14, 11, 0.82);
+      --bg-card-hover: rgba(28, 22, 16, 0.94);
+      
+      /* Pure Metallic Gold Hierarchy */
+      --gold-bright: #ffe89e;
+      --gold-light: #f5d97a;
+      --gold-primary: #d4af37;
+      --gold-dark: #997819;
+      --gold-deep: #685012;
+      
+      /* High Contrast Text */
+      --text-white: #fdfbf7;
+      --text-gold: #f5d97a;
+      --text-muted: #b3a99b;
+      --text-dim: #7d7468;
+
+      /* Gold Gradients */
+      --grad-gold-text: linear-gradient(135deg, #fff2be 0%, #f5d97a 28%, #d4af37 60%, #aa7c11 90%, #ffd700 100%);
+      --grad-gold-btn: linear-gradient(135deg, #f5d97a 0%, #d4af37 50%, #997819 100%);
+      --grad-gold-btn-hover: linear-gradient(135deg, #fff2be 0%, #f5d97a 50%, #b8860b 100%);
+      --grad-dark-card: linear-gradient(145deg, rgba(22, 18, 14, 0.9) 0%, rgba(12, 10, 8, 0.95) 100%);
+      --grad-badge: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(212, 175, 55, 0.05) 100%);
+
+      /* Glowing Borders & Highlights */
+      --border-gold: rgba(212, 175, 55, 0.28);
+      --border-gold-hover: rgba(245, 226, 159, 0.75);
+      --border-gold-subtle: rgba(212, 175, 55, 0.14);
+
+      /* Shadows */
+      --shadow-sm: 0 4px 18px rgba(0, 0, 0, 0.45);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.65);
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.85);
+      --shadow-gold: 0 0 25px rgba(212, 175, 55, 0.25);
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--text-white);
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      position: relative;
+    }
+
+    /* 1. FIXED Website Background (Not Scrollable) */
+    .site-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('portrait.jpg');
+      background-size: cover;
+      background-position: right 25% center;
+      background-repeat: no-repeat;
+      z-index: -4;
+      pointer-events: none;
+    }
+
+    /* Luxurious Dark Obsidian & Molten Gold Gradient Overlay */
+    .site-background-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: 
+        radial-gradient(circle at 82% 38%, rgba(212, 175, 55, 0.12) 0%, transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(153, 120, 25, 0.08) 0%, transparent 50%),
+        linear-gradient(
+          90deg,
+          rgba(8, 7, 6, 0.98) 0%,
+          rgba(12, 10, 8, 0.95) 45%,
+          rgba(14, 11, 9, 0.82) 78%,
+          rgba(9, 8, 7, 0.62) 100%
+        );
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      z-index: -3;
+      pointer-events: none;
+    }
+
+    /* Interactive Floating Gold Particles Canvas */
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    /* Interactive Gold Cursor Spotlight Glow */
+    #cursor-spotlight {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(212, 175, 55, 0.03) 45%, transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      transition: opacity 0.3s ease;
+      will-change: transform;
+    }
+
+    /* 2. FIXED Waves with Glitter & Molten Gold Gradients at Viewport Bottom */
+    .fixed-wave-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 110px;
+      pointer-events: none;
+      z-index: 12;
+      overflow: hidden;
+    }
+
+    .waves-svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .parallax-wave > use {
+      animation: moveWave 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+    }
+
+    .parallax-wave > use:nth-child(1) {
+      animation-delay: -2s;
+      animation-duration: 7s;
+      fill: url(#goldWave1);
+      opacity: 0.85;
+    }
+
+    .parallax-wave > use:nth-child(2) {
+      animation-delay: -3s;
+      animation-duration: 11s;
+      fill: url(#goldWave2);
+      opacity: 0.75;
+    }
+
+    .parallax-wave > use:nth-child(3) {
+      animation-delay: -4s;
+      animation-duration: 16s;
+      fill: url(#goldWave3);
+      opacity: 0.65;
+    }
+
+    .parallax-wave > use:nth-child(4) {
+      animation-delay: -5s;
+      animation-duration: 22s;
+      fill: url(#goldWave4);
+      opacity: 0.95;
+    }
+
+    @keyframes moveWave {
+      0% { transform: translate3d(-90px, 0, 0); }
+      100% { transform: translate3d(85px, 0, 0); }
+    }
+
+    /* Wave Glitter Canvas (Sparkles Twinkling over the waves) */
+    #glitter-canvas {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 110px;
+      pointer-events: none;
+      z-index: 13;
+    }
+
+    /* Scroll progress indicator (Molten Gold Bar) */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #997819, #d4af37, #ffe89e, #ffffff);
+      z-index: 1000;
+      box-shadow: 0 0 10px rgba(245, 217, 122, 0.7);
+      transition: width 0.1s ease-out;
+    }
+
+    /* Top Live Host Strip */
+    .host-strip {
+      background: rgba(10, 8, 6, 0.95);
+      color: var(--text-muted);
+      padding: 7px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.74rem;
+      border-bottom: 1px solid var(--border-gold-subtle);
+      position: relative;
+      z-index: 50;
+      flex-wrap: wrap;
+    }
+
+    .host-strip .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #90ee90;
+      font-weight: 600;
+    }
+
+    .host-strip .status-pill .ping-dot {
+      width: 8px;
+      height: 8px;
+      background: #39ff14;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #39ff14;
+      animation: pingGlow 1.8s infinite;
+    }
+
+    @keyframes pingGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .host-strip a {
+      color: var(--gold-light);
+      font-weight: 700;
+      text-decoration: underline;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+
+    .host-strip a:hover {
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(245, 217, 122, 0.6);
+    }
+
+    /* Navigation Bar (Glassmorphic Obsidian & Gold) */
+    nav {
+      position: fixed;
+      top: 42px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 40px);
+      max-width: 1200px;
+      background: rgba(14, 11, 8, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      border-radius: 9999px;
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 900;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 230, 150, 0.15);
+    }
+
+    nav.scrolled {
+      top: 10px;
+      background: rgba(10, 8, 6, 0.96);
+      border-color: rgba(212, 175, 55, 0.45);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.85);
+      padding: 7px 20px;
+    }
+
+    .nav-brand-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+    }
+
+    .nav-brand-logo {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.4));
+    }
+
+    .nav-brand-text {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 700;
+      font-size: 1.22rem;
+      letter-spacing: 1px;
+      background: var(--grad-gold-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.3));
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--gold-light);
+      text-shadow: 0 0 10px rgba(245, 217, 122, 0.4);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gold-primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      min-height: 94vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 130px 24px 50px 24px;
+      max-width: 1240px;
+      margin: 0 auto;
+      z-index: 20;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    /* Official Logo with Floating Golden Aura */
+    .hero-logo-frame {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .logo-ambient-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px;
+      height: 170px;
+      background: radial-gradient(ellipse, rgba(212, 175, 55, 0.35) 0%, rgba(153, 120, 25, 0.12) 50%, transparent 75%);
+      filter: blur(30px);
+      z-index: 1;
+      pointer-events: none;
+      animation: logoAuraGlow 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes logoAuraGlow {
+      0% { opacity: 0.65; transform: translate(-50%, -50%) scale(0.92); }
+      100% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); }
+    }
+
+    .hero-logo-img {
+      position: relative;
+      z-index: 2;
+      width: 240px;
+      height: auto;
+      max-height: 155px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 16px rgba(212, 175, 55, 0.4));
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      animation: logoFloat 4s ease-in-out infinite alternate;
+    }
+
+    .hero-logo-img:hover {
+      transform: translateY(-4px) scale(1.04);
+      filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 25px rgba(245, 217, 122, 0.65));
+    }
+
+    @keyframes logoFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-5px); }
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.08;
+      background: var(--grad-gold-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      filter: drop-shadow(0 4px 15px rgba(212, 175, 55, 0.3));
+    }
+
+    .hero-headline {
+      font-size: clamp(1rem, 1.7vw, 1.25rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.45;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-headline span {
+      background: linear-gradient(135deg, #ffe89e, #d4af37);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtext {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons: Resume & Video Introduction */
+    .btn-resume {
+      background: var(--grad-gold-btn);
+      color: #0d0b07;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 235, 160, 0.6);
+    }
+
+    .btn-resume::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -100%;
+      width: 60%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+      transform: rotate(30deg);
+      transition: 0.7s;
+    }
+
+    .btn-resume:hover::after {
+      left: 140%;
+    }
+
+    .btn-resume:hover {
+      background: var(--grad-gold-btn-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(245, 217, 122, 0.65);
+      color: #000;
+    }
+
+    .btn-video-intro {
+      background: rgba(18, 14, 11, 0.85);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .btn-video-intro:hover {
+      background: rgba(30, 24, 18, 0.95);
+      border-color: var(--gold-light);
+      transform: translateY(-2px);
+      color: #ffffff;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+    }
+
+    .btn-video-intro .play-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold-primary);
+      box-shadow: 0 0 10px var(--gold-light);
+      animation: pulsePlayDot 1.5s infinite;
+    }
+
+    @keyframes pulsePlayDot {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.35); opacity: 0.5; }
+    }
+
+    /* Headline Photo (Clean Cutout, NO floating chips) */
+    .hero-person-showcase {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo-ambient-glow {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, rgba(153, 120, 25, 0.12) 50%, transparent 75%);
+      filter: blur(55px);
+      z-index: 1;
+      pointer-events: none;
+      animation: goldAuraPulse 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes goldAuraPulse {
+      0% { opacity: 0.65; transform: scale(0.95); }
+      100% { opacity: 0.95; transform: scale(1.08); }
+    }
+
+    .hero-cutout-frame {
+      position: relative;
+      z-index: 2;
+      max-width: 480px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .hero-cutout-img {
+      width: 100%;
+      height: auto;
+      max-height: 590px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 20px rgba(212, 175, 55, 0.25));
+      display: block;
+    }
+
+    /* Marquee Ribbon */
+    .marquee-bar {
+      background: linear-gradient(90deg, #0a0806 0%, #17130e 50%, #0a0806 100%);
+      color: var(--gold-light);
+      padding: 12px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      z-index: 20;
+      border-top: 1px solid var(--border-gold-subtle);
+      border-bottom: 1px solid var(--border-gold-subtle);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .marquee-track {
+      display: inline-block;
+      animation: marqueeScroll 22s linear infinite;
+    }
+
+    .marquee-bar:hover .marquee-track {
+      animation-play-state: paused;
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0 24px;
+      color: var(--text-white);
+    }
+
+    .marquee-item span.highlight {
+      background: var(--grad-gold-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+
+    .marquee-item .sep {
+      color: var(--gold-primary);
+      opacity: 0.6;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Section Styling Shared System */
+    section {
+      position: relative;
+      padding: 70px 24px;
+      max-width: 1240px;
+      margin: 0 auto;
+      z-index: 20;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 45px auto;
+    }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      background: var(--grad-badge);
+      border: 1px solid var(--border-gold);
+      border-radius: 9999px;
+      color: var(--gold-light);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+      font-weight: 700;
+      background: var(--grad-gold-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.2));
+    }
+
+    .section-title-lg {
+      font-size: clamp(2.4rem, 4.6vw, 3.5rem);
+      letter-spacing: 1.5px;
+    }
+
+    .section-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Glassmorphic Luxury Cards */
+    .glass-card {
+      background: var(--grad-dark-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gold);
+      border-radius: 18px;
+      padding: 26px;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 235, 160, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(245, 217, 122, 0.6), transparent);
+      opacity: 0.4;
+      transition: opacity 0.3s;
+    }
+
+    .glass-card:hover {
+      border-color: var(--border-gold-hover);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(212, 175, 55, 0.25), inset 0 1px 0 rgba(255, 240, 180, 0.25);
+      transform: translateY(-4px);
+    }
+
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    /* 3. About Me Section - Large Title, Smaller Text, Animated Border */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .about-photo-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-ambient-glow {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, rgba(153, 120, 25, 0.08) 55%, transparent 75%);
+      filter: blur(50px);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .about-cutout-img {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 440px;
+      height: auto;
+      max-height: 540px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 18px rgba(212, 175, 55, 0.22));
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    /* Animated Molten-Gold Laser Border Effect on About Me Section */
+    .about-animated-border-card {
+      position: relative;
+      border-radius: 20px;
+      padding: 3px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(14, 11, 8, 0.5));
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.2);
+    }
+
+    .about-animated-border-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(212, 175, 55, 0.1) 40deg,
+        #f5d97a 90deg,
+        #ffe89e 110deg,
+        #d4af37 130deg,
+        rgba(212, 175, 55, 0.15) 170deg,
+        transparent 220deg,
+        #f5d97a 300deg,
+        transparent 360deg
+      );
+      animation: rotateBorderBeam 7s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes rotateBorderBeam {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .about-inner-card {
+      position: relative;
+      z-index: 2;
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(18, 14, 11, 0.96) 0%, rgba(10, 8, 6, 0.98) 100%);
+      padding: 34px 30px;
+      backdrop-filter: blur(20px);
+    }
+
+    .about-text-p {
+      font-size: 0.80rem;
+      line-height: 1.78;
+      color: #ede6dc;
+      margin-bottom: 16px;
+      letter-spacing: 0.2px;
+    }
+
+    .about-highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-gold-subtle);
+    }
+
+    .stat-mini-box {
+      text-align: center;
+      padding: 14px 10px;
+      background: rgba(25, 20, 15, 0.65);
+      border: 1px solid var(--border-gold-subtle);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stat-mini-box:hover {
+      border-color: var(--gold-light);
+      background: rgba(35, 28, 20, 0.85);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+    }
+
+    .stat-icon {
+      font-size: 1.35rem;
+      display: block;
+      margin-bottom: 6px;
+      filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.45));
+    }
+
+    .stat-title {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      display: block;
+      line-height: 1.3;
+    }
+
+    /* 4. WHY HIRE ME? Section (Compact Sleek Boxes) */
+    .why-hire-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .why-hire-card {
+      padding: 14px 16px;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .why-hire-card .card-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--grad-badge);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      font-size: 0.95rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .why-hire-card h4 {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.2px;
+      line-height: 1.25;
+    }
+
+    .why-hire-card p.small-detail {
+      font-size: 0.73rem;
+      line-height: 1.5;
+      color: #dfd8ce;
+    }
+
+    .closing-hire-note {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, rgba(28, 22, 16, 0.9) 0%, rgba(14, 11, 8, 0.95) 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .closing-hire-note p {
+      font-size: 0.76rem;
+      color: #ede6dc;
+      line-height: 1.55;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .closing-hire-note p strong {
+      color: var(--gold-light);
+    }
+
+    /* 5. Tools and Platforms I Am Using (Compact Sleek Boxes) */
+    .tools-category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .tool-group-card {
+      padding: 14px 16px;
+      border-radius: 14px;
+    }
+
+    .tool-group-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-gold-subtle);
+    }
+
+    .tool-group-header h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .tool-chips-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tool-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 9px;
+      background: rgba(25, 20, 15, 0.7);
+      border: 1px solid var(--border-gold-subtle);
+      border-radius: 8px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-white);
+      transition: all 0.25s ease;
+    }
+
+    .tool-chip:hover {
+      border-color: var(--gold-light);
+      background: rgba(45, 35, 24, 0.85);
+      color: var(--gold-bright);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+    }
+
+    .tool-chip svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    /* 6. Companies I Have Worked With (Compact Sleek Boxes) */
+    .companies-detailed-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .company-exp-card {
+      padding: 16px 18px;
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .company-card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .company-logo-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #1f1913, #120f0c);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      font-size: 1.1rem;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .company-exp-card:hover .company-logo-avatar {
+      transform: scale(1.08) rotate(4deg);
+      border-color: var(--gold-light);
+    }
+
+    .company-title-info h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.2;
+    }
+
+    .company-date-badge {
+      display: inline-block;
+      margin-top: 2px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.4px;
+    }
+
+    .company-bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin: 8px 0 10px 0;
+      flex-grow: 1;
+    }
+
+    .company-bullet-list li {
+      font-size: 0.72rem;
+      color: #ede6dc;
+      line-height: 1.45;
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .company-bullet-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      top: 1px;
+      color: var(--gold-primary);
+      font-size: 0.55rem;
+    }
+
+    .company-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      padding-top: 8px;
+      border-top: 1px solid var(--border-gold-subtle);
+      transition: color 0.2s;
+    }
+
+    .company-link-btn:hover {
+      color: #ffffff;
+    }
+
+    /* 7. Dedicated Project Showcases (Curated, Contained Width for Silken Flora & The Informata) */
+    .project-showcase-container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .project-showcase-card {
+      background: linear-gradient(155deg, rgba(22, 18, 14, 0.95) 0%, rgba(12, 10, 8, 0.98) 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 20px rgba(212, 175, 55, 0.08);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-showcase-card:hover {
+      border-color: rgba(245, 217, 122, 0.45);
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.9), 0 0 26px rgba(212, 175, 55, 0.16);
+    }
+
+    .project-showcase-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* Video Player Column */
+    .showcase-video-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* Video Switcher Tabs */
+    .showcase-tabs-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(14, 11, 8, 0.9);
+      border: 1px solid var(--border-gold-subtle);
+      border-radius: 9999px;
+      padding: 4px;
+    }
+
+    .showcase-tab-btn {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: #bfae98;
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      padding: 6px 10px;
+      border-radius: 9999px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.25s ease;
+    }
+
+    .showcase-tab-btn:hover {
+      color: var(--text-white);
+    }
+
+    .showcase-tab-btn.active {
+      background: var(--grad-gold-btn);
+      color: #0b0906;
+      box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Showcase Video Player Box (Compact height) */
+    .showcase-video-box {
+      width: 100%;
+      height: 225px;
+      background: #000;
+      border-radius: 14px;
+      border: 1px solid var(--border-gold-subtle);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+    }
+
+    .showcase-video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #000;
+      cursor: pointer;
+    }
+
+    /* Floating Sound Control / Unmute Pill */
+    .video-sound-pill {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 6;
+      background: rgba(14, 11, 8, 0.9);
+      border: 1px solid var(--border-gold);
+      border-radius: 9999px;
+      padding: 5px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      color: var(--gold-light);
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.85), 0 0 10px rgba(212, 175, 55, 0.25);
+      backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
+      outline: none;
+    }
+
+    .video-sound-pill:hover {
+      background: var(--grad-gold-btn);
+      color: #0b0906;
+      border-color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(212, 175, 55, 0.6);
+    }
+
+    .video-sound-pill.sound-active {
+      background: var(--grad-gold-btn);
+      color: #0b0906;
+      border-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 16px rgba(245, 217, 122, 0.85);
+      animation: soundPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes soundPulse {
+      0%, 100% { box-shadow: 0 0 12px rgba(245, 217, 122, 0.6); }
+      50% { box-shadow: 0 0 22px rgba(245, 217, 122, 0.95); }
+    }
+
+    .video-sound-pill .sound-icon {
+      font-size: 0.80rem;
+      line-height: 1;
+    }
+
+    .showcase-video-caption {
+      font-size: 0.68rem;
+      color: #a89f92;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2px;
+    }
+
+    .showcase-video-caption span.pill {
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold-light);
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.62rem;
+    }
+
+    /* Information & Gallery Column */
+    .showcase-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .showcase-header-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .showcase-icon-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(35, 28, 20, 0.9);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .showcase-title-wrap h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.15;
+    }
+
+    .showcase-title-wrap .sub {
+      font-size: 0.70rem;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      font-weight: 700;
+      margin-top: 2px;
+      display: block;
+    }
+
+    .showcase-desc {
+      font-size: 0.75rem;
+      color: #ede6dc;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Image Gallery Grid (Compact thumbnails) */
+    .gallery-preview-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .gallery-preview-label {
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--gold-light);
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .gallery-thumbs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+
+    .gallery-thumb-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-gold-subtle);
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+      background: #000;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .gallery-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .gallery-thumb-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold-light);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
+    }
+
+    .gallery-thumb-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-thumb-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 4px;
+      font-size: 0.50rem;
+      color: #fff;
+      padding: 1px 3px;
+      pointer-events: none;
+    }
+
+    .showcase-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 2px;
+    }
+
+    .showcase-tag {
+      background: rgba(25, 20, 15, 0.85);
+      border: 1px solid var(--border-gold-subtle);
+      color: #dfd8ce;
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-size: 0.64rem;
+      font-weight: 600;
+    }
+
+    /* 8. Short Animations - Miniature Phone Screen Grid (1.5 inch height / ~144px) */
+    .short-animations-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 12px;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .short-phone-card {
+      background: linear-gradient(155deg, #181410 0%, #0c0a08 100%);
+      border: 1.5px solid rgba(212, 175, 55, 0.4);
+      border-radius: 18px;
+      padding: 6px 6px 8px 6px;
+      width: 96px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.85), 0 0 10px rgba(212, 175, 55, 0.08);
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .short-phone-card:hover {
+      border-color: var(--gold-light);
+      transform: translateY(-5px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.95), 0 0 18px rgba(212, 175, 55, 0.28);
+    }
+
+    /* Miniature Speaker Notch */
+    .short-phone-notch {
+      width: 22px;
+      height: 2.5px;
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: 9999px;
+      margin: 0 auto 5px auto;
+    }
+
+    /* Miniature Phone Screen - Exactly 1.5 inch height (144px), 9:16 aspect ratio (81-82px width) */
+    .short-phone-screen {
+      width: 82px;
+      height: 1.5in; /* 144px */
+      background: #000;
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      border-radius: 11px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.95);
+    }
+
+    .short-phone-thumb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease, filter 0.3s ease;
+      z-index: 1;
+    }
+
+    .short-phone-card:hover .short-phone-thumb {
+      transform: scale(1.08);
+      filter: brightness(1.1);
+    }
+
+    .short-phone-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0.05) 30%,
+        rgba(0, 0, 0, 0.25) 60%,
+        rgba(8, 7, 6, 0.92) 100%
+      );
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 4px 4px 3px 4px;
+      pointer-events: none;
+    }
+
+    .short-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      font-size: 0.45rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: 0.2px;
+      line-height: 1;
+    }
+
+    .short-play-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .short-play-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--grad-gold-btn);
+      border: 1.5px solid rgba(255, 245, 200, 0.9);
+      color: #0d0b07;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.60rem;
+      padding-left: 2px;
+      box-shadow: 0 2px 8px rgba(212, 175, 55, 0.5);
+      transition: all 0.25s ease;
+    }
+
+    .short-phone-card:hover .short-play-btn {
+      transform: scale(1.15);
+      background: var(--grad-gold-btn-hover);
+      box-shadow: 0 3px 12px rgba(245, 217, 122, 0.85);
+    }
+
+    .short-bottom-label {
+      font-size: 0.44rem;
+      color: #f7eedf;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .short-info-box {
+      margin-top: 6px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .short-title {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1.15;
+      letter-spacing: 0.1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 86px;
+    }
+
+    .short-category {
+      font-size: 0.48rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-top: 1px;
+      margin-bottom: 5px;
+    }
+
+    .short-yt-link {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: var(--gold-light);
+      padding: 2px 6px;
+      border-radius: 9999px;
+      font-size: 0.48rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .short-yt-link:hover {
+      background: var(--grad-gold-btn);
+      color: #0c0a08;
+      border-color: var(--gold-light);
+    }
+
+    .btn-drive-watch {
+      margin-top: auto;
+      background: var(--grad-gold-btn);
+      color: #0d0b07;
+      padding: 5px 8px;
+      border-radius: 9999px;
+      font-size: 0.60rem;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.25s ease;
+      border: 1px solid rgba(255, 235, 160, 0.6);
+      box-shadow: 0 2px 8px rgba(212, 175, 55, 0.25);
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn-drive-watch:hover {
+      background: var(--grad-gold-btn-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(245, 217, 122, 0.5);
+      color: #000;
+    }
+
+    /* Lightbox Modal for Gallery Images */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(14px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 20px;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-box {
+      position: relative;
+      max-width: 820px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #0e0c0a;
+      border: 1px solid var(--border-gold);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(212, 175, 55, 0.2);
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+      background: #050403;
+    }
+
+    .lightbox-footer {
+      width: 100%;
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #14100c;
+      border-top: 1px solid var(--border-gold-subtle);
+    }
+
+    .lightbox-caption {
+      font-size: 0.80rem;
+      color: var(--text-white);
+      font-weight: 600;
+    }
+
+    .lightbox-close-btn {
+      background: var(--grad-gold-btn);
+      border: none;
+      color: #0a0806;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .project-showcase-grid {
+        grid-template-columns: 1fr;
+      }
+      .showcase-video-box {
+        height: 200px;
+      }
+      .video-phones-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        max-width: 100%;
+      }
+    }
+
+    /* 9. Interactive Collaboration Studio (Placed at Lower Part as requested) */
+    .interactive-hub-container {
+      background: linear-gradient(145deg, rgba(22, 17, 13, 0.95) 0%, rgba(10, 8, 6, 0.98) 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: 22px;
+      padding: 34px 28px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interactive-hub-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ffe89e, #d4af37, transparent);
+    }
+
+    .interactive-hub-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .project-selector-col h4 {
+      font-size: 1.05rem;
+      color: var(--gold-light);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .choice-group-title {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin: 14px 0 8px 0;
+    }
+
+    .interactive-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .calc-pill {
+      background: rgba(25, 20, 15, 0.75);
+      border: 1px solid var(--border-gold-subtle);
+      color: #dfd8ce;
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      user-select: none;
+    }
+
+    .calc-pill:hover {
+      border-color: var(--gold-light);
+      color: #fff;
+    }
+
+    .calc-pill.selected {
+      background: var(--grad-gold-btn);
+      border-color: #ffe89e;
+      color: #0d0b07;
+      font-weight: 800;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    }
+
+    /* Live Output Box */
+    .interactive-output-card {
+      background: rgba(14, 11, 8, 0.9);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: inset 0 1px 0 rgba(255, 235, 160, 0.15);
+    }
+
+    .match-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-gold-subtle);
+      padding-bottom: 12px;
+    }
+
+    .match-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: #90ee90;
+      text-transform: uppercase;
+    }
+
+    .match-score {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .live-summary-item {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .live-summary-item strong {
+      color: #ffffff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .btn-send-inquiry {
+      background: var(--grad-gold-btn);
+      color: #0d0b07;
+      padding: 11px 20px;
+      border-radius: 9999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+      margin-top: 6px;
+    }
+
+    .btn-send-inquiry:hover {
+      background: var(--grad-gold-btn-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(245, 217, 122, 0.55);
+      color: #000;
+    }
+
+    /* Visitor Reaction & Vibe Wall */
+    .vibe-wall-wrap {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-gold-subtle);
+      text-align: center;
+    }
+
+    .vibe-wall-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .vibe-btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .vibe-btn {
+      background: rgba(25, 20, 15, 0.8);
+      border: 1px solid var(--border-gold);
+      border-radius: 9999px;
+      padding: 8px 18px;
+      color: #fdfbf7;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      user-select: none;
+    }
+
+    .vibe-btn:hover {
+      border-color: var(--gold-light);
+      background: rgba(45, 35, 25, 0.9);
+      transform: scale(1.05);
+      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.3);
+    }
+
+    .vibe-btn.clicked {
+      background: var(--grad-badge);
+      border-color: #ffe89e;
+      color: var(--gold-bright);
+    }
+
+    .vibe-counter {
+      background: rgba(212, 175, 55, 0.25);
+      color: var(--gold-bright);
+      padding: 2px 7px;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+
+    /* 10. Get In Touch Section (Phone Number Removed) */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover {
+      border-color: var(--gold-light);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.25);
+    }
+
+    .contact-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: var(--grad-badge);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-info h4 {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+
+    .contact-info p {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-white);
+      word-break: break-all;
+    }
+
+    .contact-info span.action-hint {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 3px;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 20;
+      text-align: center;
+      padding: 30px 20px 140px 20px;
+      border-top: 1px solid var(--border-gold-subtle);
+      background: rgba(8, 7, 6, 0.95);
+      color: var(--text-muted);
+      font-size: 0.76rem;
+    }
+
+    footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    /* Back To Top Floating Button */
+    .btn-back-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--grad-gold-btn);
+      border: 1px solid rgba(255, 235, 160, 0.6);
+      color: #0d0b07;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(15px);
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.35);
+    }
+
+    .btn-back-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .btn-back-top:hover {
+      background: var(--grad-gold-btn-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(245, 217, 122, 0.6);
+    }
+
+    /* Interactive Floating Audio Equalizer Widget */
+    .audio-pill-widget {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 100;
+      background: rgba(14, 11, 8, 0.9);
+      border: 1px solid var(--border-gold);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 9999px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.2);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .audio-pill-widget:hover {
+      border-color: var(--gold-light);
+      box-shadow: 0 8px 28px rgba(212, 175, 55, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .equalizer-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 2.5px;
+      height: 14px;
+    }
+
+    .equalizer-bars span {
+      width: 2.5px;
+      background: var(--gold-primary);
+      border-radius: 2px;
+      animation: eqBar 1.2s ease-in-out infinite alternate;
+    }
+
+    .equalizer-bars span:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+    .equalizer-bars span:nth-child(2) { height: 13px; animation-delay: 0.3s; }
+    .equalizer-bars span:nth-child(3) { height: 8px; animation-delay: 0.2s; }
+    .equalizer-bars span:nth-child(4) { height: 12px; animation-delay: 0.4s; }
+
+    .equalizer-bars.paused span {
+      animation-play-state: paused;
+      height: 3px !important;
+      opacity: 0.5;
+    }
+
+    @keyframes eqBar {
+      0% { height: 3px; }
+      100% { height: 14px; }
+    }
+
+    .audio-pill-text {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    /* Video Introduction Modal */
+    .video-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s ease;
+    }
+
+    .video-modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .video-modal-container {
+      background: linear-gradient(145deg, #16120e 0%, #0c0a08 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: 22px;
+      max-width: 680px;
+      width: 100%;
+      padding: 28px;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(212, 175, 55, 0.3);
+      transform: scale(0.92);
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .video-modal-backdrop.active .video-modal-container {
+      transform: scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(25, 20, 15, 0.8);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.25s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--gold-primary);
+      color: #0d0b07;
+      transform: rotate(90deg);
+    }
+
+    .modal-video-stage {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 14px;
+      border: 1px solid var(--border-gold-subtle);
+      margin: 18px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal-video-stage .stage-play-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--grad-gold-btn);
+      border: 2px solid rgba(255, 240, 180, 0.8);
+      color: #0d0b07;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+      transition: transform 0.25s ease;
+    }
+
+    .modal-video-stage .stage-play-btn:hover {
+      transform: scale(1.15);
+    }
+
+    .modal-intro-text {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Hidden YouTube Player */
+    #yt-player-container {
+      position: fixed;
+      top: -9999px;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid, .about-grid, .interactive-hub-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-cta-group {
+        justify-content: center;
+      }
+      .hero-cutout-frame, .about-cutout-img {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+      .nav-links {
+        display: none;
+      }
+      .about-highlights-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hidden YouTube Background Music Player (Morning Piano Music) -->
+  <div id="yt-player-container">
+    <div id="yt-player"></div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- 1. FIXED Website Background (Not Scrollable) -->
+  <div class="site-background"></div>
+  <div class="site-background-overlay"></div>
+
+  <!-- Interactive Ethereal Golden Particles Canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Interactive Gold Cursor Spotlight Glow -->
+  <div id="cursor-spotlight"></div>
+
+  <!-- 2. FIXED Waves at Viewport Bottom with Glitter & Molten Gold Gradients -->
+  <div class="fixed-wave-container">
+    <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        <linearGradient id="goldWave1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#0a0806" />
+          <stop offset="50%" stop-color="#1c160e" />
+          <stop offset="100%" stop-color="#0a0806" />
+        </linearGradient>
+        <linearGradient id="goldWave2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#2a2012" />
+          <stop offset="50%" stop-color="#6e5015" />
+          <stop offset="100%" stop-color="#2a2012" />
+        </linearGradient>
+        <linearGradient id="goldWave3" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#997819" />
+          <stop offset="50%" stop-color="#d4af37" />
+          <stop offset="100%" stop-color="#805d0e" />
+        </linearGradient>
+        <linearGradient id="goldWave4" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#0d0b08" />
+          <stop offset="35%" stop-color="#231c12" />
+          <stop offset="70%" stop-color="#3d2f16" />
+          <stop offset="100%" stop-color="#0d0b08" />
+        </linearGradient>
+      </defs>
+      <g class="parallax-wave">
+        <use xlink:href="#gentle-wave" x="48" y="0" />
+        <use xlink:href="#gentle-wave" x="48" y="3" />
+        <use xlink:href="#gentle-wave" x="48" y="5" />
+        <use xlink:href="#gentle-wave" x="48" y="7" />
+      </g>
+    </svg>
+    <!-- Wave Glitter Canvas -->
+    <canvas id="glitter-canvas"></canvas>
+  </div>
+
+  <!-- Top Live Host Strip -->
+  <div class="host-strip">
+    <span class="status-pill"><span class="ping-dot"></span> Live Local Server Active</span>
+    <span>•</span>
+    <span>Host Preview URL: <a href="http://localhost:5000" target="_blank">http://localhost:5000</a></span>
+    <span>•</span>
+    <span>Music: Morning Piano (Autoplay On)</span>
+    <span>•</span>
+    <a href="/portfolio-jhamcee-miran.zip" download="portfolio-jhamcee-miran.zip" class="top-dl-btn" style="color: var(--gold-light); font-weight: 700; text-decoration: none; background: rgba(212, 175, 55, 0.16); padding: 3px 10px; border-radius: 9999px; border: 1px solid rgba(212, 175, 55, 0.5); display: inline-flex; align-items: center; gap: 4px;">
+      💾 Download Portfolio ZIP
+    </a>
+  </div>
+
+  <!-- Navigation Bar (Clean Black Glass, Resume button removed from top) -->
+  <nav id="navbar">
+    <a href="#" class="nav-brand-wrap">
+      <img src="logo.png" alt="Logo" class="nav-brand-logo">
+      <span class="nav-brand-text">Jhamcee Eve Miran</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#why-hire">Why Hire Me</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#companies">Experience</a></li>
+      <li><a href="#silken-flora">Silken Flora</a></li>
+      <li><a href="#the-informata">The Informata</a></li>
+      <li><a href="#the-matcha-society">Matcha Society</a></li>
+      <li><a href="#short-animations">Short Animations</a></li>
+      <li><a href="#interactive-hub">Collaboration</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-grid">
+      <div class="hero-text-col reveal">
+        <!-- User Official Logo with Floating Golden Aura -->
+        <div class="hero-logo-frame">
+          <div class="logo-ambient-glow"></div>
+          <img src="logo.png" alt="Jhamcee Eve Miran Official Logo" class="hero-logo-img">
+        </div>
+
+        <h1 class="hero-name">Jhamcee Eve Miran</h1>
+        <p class="hero-headline">
+          <span>Creative Mind.</span> Clear Communication. <span>Exceptional Execution.</span>
+        </p>
+        <p class="hero-subtext">
+          Visual Artist, Video Editor, Customer Support Specialist & Transcriptionist delivering impactful visuals, precise communication, and dependable operational execution.
+        </p>
+        <div class="hero-cta-group">
+          <!-- Resume CTA Button linking to Google Docs -->
+          <a href="https://docs.google.com/document/d/14fUvTU3-ZGVhouRakO5tNvDa5ulJ2rEQ/edit?usp=drivesdk&ouid=108290393413478515857&rtpof=true&sd=true" target="_blank" class="btn-resume">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            Resume
+          </a>
+          <!-- Video Introduction CTA Button -->
+          <button type="button" class="btn-video-intro" id="openVideoIntroBtn">
+            <span class="play-dot"></span>
+            Video Introduction
+          </button>
+          <!-- Download ZIP Portfolio Button -->
+          <a href="/portfolio-jhamcee-miran.zip" download="portfolio-jhamcee-miran.zip" class="btn-resume" style="border-color: rgba(212, 175, 55, 0.45); background: rgba(24, 20, 16, 0.85); text-decoration: none;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download ZIP
+          </a>
+        </div>
+      </div>
+
+      <!-- Headline Cutout Photo (Enlarged with 3D Parallax & Golden Backlight Glow) -->
+      <div class="hero-person-showcase reveal">
+        <div class="photo-ambient-glow"></div>
+        <div class="hero-cutout-frame" id="heroPhotoFrame">
+          <img src="jhamcee_transparent.png" alt="Jhamcee Eve Miran" class="hero-cutout-img" id="heroCutoutImg">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Scrolling Marquee Ribbon -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="highlight">Visual Artist</span> <span class="sep">✦</span> Video Editor <span class="sep">✦</span> <span class="highlight">Customer Support</span> <span class="sep">✦</span> Transcriptionist</span>
+      <span class="marquee-item"><span class="highlight">Visual Artist</span> <span class="sep">✦</span> Video Editor <span class="sep">✦</span> <span class="highlight">Customer Support</span> <span class="sep">✦</span> Transcriptionist</span>
+      <span class="marquee-item"><span class="highlight">Visual Artist</span> <span class="sep">✦</span> Video Editor <span class="sep">✦</span> <span class="highlight">Customer Support</span> <span class="sep">✦</span> Transcriptionist</span>
+      <span class="marquee-item"><span class="highlight">Visual Artist</span> <span class="sep">✦</span> Video Editor <span class="sep">✦</span> <span class="highlight">Customer Support</span> <span class="sep">✦</span> Transcriptionist</span>
+    </div>
+  </div>
+
+  <!-- About Me Section (Enlarged Title, Smaller Text, 3 Category Highlights, Laser Border) -->
+  <section id="about">
+    <div class="section-header reveal">
+      <h2 class="section-title section-title-lg">ABOUT ME</h2>
+      <p class="section-desc">Passionate about storytelling, design, and delivering seamless operational excellence.</p>
+    </div>
+
+    <div class="about-grid">
+      <!-- Cutout Photo for About Me -->
+      <div class="about-photo-wrapper reveal">
+        <div class="about-ambient-glow"></div>
+        <img src="about_transparent.png" alt="Jhamcee Eve Miran Profile" class="about-cutout-img">
+      </div>
+
+      <!-- About Me Card with Animated Laser Border Effect -->
+      <div class="about-animated-border-card reveal">
+        <div class="about-inner-card">
+          <p class="about-text-p">
+            I am a creative, versatile, and detail-oriented professional with experience in customer service, transcription, and digital content creation. As a Visual Artist and Video Editor, I specialize in creating and editing logos, posters, infographics, images, covers, social media reels, short films, and other multimedia content.
+          </p>
+          <p class="about-text-p">
+            With a background in BPO and a Bachelor's degree in Secondary Education majoring in English, I bring strong communication, writing, problem-solving, and organizational skills. I am an Academic Scholar, Dean's Lister with Academic Distinction, and Best Thesis Award recipient. I am adaptable, creative, eager to learn, and committed to delivering quality work with accuracy and dedication.
+          </p>
+
+          <div class="about-highlights-grid">
+            <div class="stat-mini-box">
+              <span class="stat-icon">🎧</span>
+              <span class="stat-title">Customer Support</span>
+            </div>
+            <div class="stat-mini-box">
+              <span class="stat-icon">🎨</span>
+              <span class="stat-title">Visual Design</span>
+            </div>
+            <div class="stat-mini-box">
+              <span class="stat-icon">✍️</span>
+              <span class="stat-title">Transcription</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY HIRE ME? Section (with smaller font as requested) -->
+  <section id="why-hire">
+    <div class="section-header reveal">
+      <span class="section-badge">Value Proposition</span>
+      <h2 class="section-title">WHY HIRE ME?</h2>
+      <p class="section-desc">Proven operational experience, bilingual clarity, and dedicated work ethic.</p>
+    </div>
+
+    <div class="why-hire-grid">
+      <div class="glass-card why-hire-card reveal">
+        <div class="card-icon">🍕</div>
+        <h4>BPO & Customer Service Experience</h4>
+        <p class="small-detail">
+          I have previous experience in the BPO industry, working as a Customer Service Representative for <strong>Domino's Pizza in the US account</strong> and <strong>Pizza Hotline in the Canadian account</strong>. My responsibilities included handling customer inquiries, processing orders, resolving concerns, and providing excellent customer service.
+        </p>
+      </div>
+
+      <div class="glass-card why-hire-card reveal">
+        <div class="card-icon">🎧</div>
+        <h4>Transcriptionist & Attention to Detail</h4>
+        <p class="small-detail">
+          I also have experience as a Transcriptionist, where I developed strong listening skills, attention to detail, and accuracy in written communication.
+        </p>
+      </div>
+
+      <div class="glass-card why-hire-card reveal">
+        <div class="card-icon">🎨</div>
+        <h4>Web Designer / Graphic Designer with Video Skills</h4>
+        <p class="small-detail">
+          Full-stack visual creator proficient in crafting cohesive brand identities, modern e-commerce storefronts, high-impact marketing visuals, and rhythmically edited commercial video animations.
+        </p>
+      </div>
+
+      <div class="closing-hire-note reveal">
+        <p>
+          I'm <strong>adaptable</strong>, <strong>detail-oriented</strong>, a <strong>quick learner</strong>, and comfortable working <strong>independently or with a team</strong>. I'm excited about the opportunity to bring my experience and skills to your company. Thank you for your time, and I hope to have the opportunity to work with you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools and Platforms I Am Using Section (Includes CapCut) -->
+  <section id="tools">
+    <div class="section-header reveal">
+      <span class="section-badge">Productivity Stack</span>
+      <h2 class="section-title">Tools & Platforms I Am Using</h2>
+      <p class="section-desc">Streamlined daily workflow using leading productivity, communication, and creative software.</p>
+    </div>
+
+    <div class="tools-category-grid">
+      <!-- 1. Core Tools -->
+      <div class="glass-card tool-group-card reveal">
+        <div class="tool-group-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+          <h4>Core Tools</h4>
+        </div>
+        <div class="tool-chips-wrap">
+          <div class="tool-chip" style="border-color: rgba(255, 232, 158, 0.45);">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 6.5L12 11.5L20 6.5" stroke="#ffe89e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 17.5L12 12.5L20 17.5" stroke="#ffe89e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="1.5" fill="#f5d97a"/>
+            </svg>
+            CapCut
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#EA4335"/><circle cx="12" cy="12" r="4" fill="#4285F4"/></svg>
+            Google Chrome
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#EA4335"/></svg>
+            Gmail
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zm-9 9h7v7H4v-7zm9 0h7v7h-7v-7z" fill="#D83B01"/></svg>
+            Microsoft Office
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2z" fill="#0F9D58"/></svg>
+            Google Sheets
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><path d="M7.71 3.5L1.15 15l3.43 6h6.56l6.57-11.5-3.43-6H7.71z" fill="#FFBA00"/></svg>
+            Google Drive
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z" fill="#4285F4"/></svg>
+            Google Calendar
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#10A37F"/><path d="M12 6a6 6 0 1 0 6 6" stroke="#fff" stroke-width="2" fill="none"/></svg>
+            ChatGPT
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#D97706"/><circle cx="12" cy="12" r="5" fill="#fff"/></svg>
+            Claude
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#00C4CC"/><text x="7" y="16" fill="#fff" font-weight="bold" font-size="12">C</text></svg>
+            Canva
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><polygon points="12,2 22,20 2,20" fill="#d4af37"/></svg>
+            Antigravity
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Communication and Collaboration -->
+      <div class="glass-card tool-group-card reveal">
+        <div class="tool-group-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          <h4>Communication & Collaboration</h4>
+        </div>
+        <div class="tool-chips-wrap">
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" fill="#00897B"/></svg>
+            Google Meet
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><path d="M4 6h10a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm14 3l4-3v12l-4-3V9z" fill="#2D8CFF"/></svg>
+            Zoom
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#5059C9"/><text x="8" y="16" fill="#fff" font-weight="bold" font-size="11">T</text></svg>
+            Microsoft Teams
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><path d="M19.27 5.33C17.94 4.71 16.5 4.26 15 4a.09.09 0 0 0-.07.03c-.18.33-.39.76-.53 1.09a16.09 16.09 0 0 0-4.8 0c-.14-.34-.35-.76-.54-1.09-.01-.02-.04-.03-.07-.03-1.5.26-2.93.71-4.27 1.33-.01 0-.02.01-.03.02-2.72 4.07-3.47 8.03-3.1 11.95 0 .02.01.04.03.05 1.8 1.32 3.53 2.12 5.24 2.65.03.01.06 0 .07-.02.4-.55.76-1.13 1.07-1.74.02-.04 0-.08-.04-.09-.57-.22-1.11-.48-1.64-.78-.04-.02-.04-.08-.01-.11.11-.08.22-.17.33-.25.02-.02.05-.02.07-.01 3.44 1.57 7.15 1.57 10.55 0 .02-.01.05-.01.07.01.11.09.22.17.33.26.04.03.04.08-.01.11-.52.31-1.07.56-1.64.78-.04.01-.05.06-.04.09.32.61.68 1.19 1.07 1.74.01.02.05.03.08.02 1.72-.53 3.45-1.33 5.25-2.65.02-.01.03-.03.03-.05.44-4.53-.73-8.46-3.1-11.95-.01-.01-.02-.02-.03-.02z" fill="#5865F2"/></svg>
+            Discord
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Data and Reporting -->
+      <div class="glass-card tool-group-card reveal">
+        <div class="tool-group-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+          <h4>Data & Reporting</h4>
+        </div>
+        <div class="tool-chips-wrap">
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-3-5 3-5h2.5l-3 5 3 5H12z" fill="#107C41"/></svg>
+            Microsoft Excel
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 14H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="#7248B9"/></svg>
+            Google Forms
+          </div>
+          <div class="tool-chip">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 14H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="#4285F4"/></svg>
+            Google Docs
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Companies I Have Worked With (Detailed Job Experience) -->
+  <section id="companies">
+    <div class="section-header reveal">
+      <span class="section-badge">Career Track Record</span>
+      <h2 class="section-title">Companies I Have Worked With</h2>
+      <p class="section-desc">Proven operational execution across international customer support and professional audio transcription.</p>
+    </div>
+
+    <div class="companies-detailed-grid">
+      <!-- 1. Domino's Pizza (US) -->
+      <div class="glass-card company-exp-card reveal">
+        <div class="company-card-top">
+          <div class="company-logo-avatar">🍕</div>
+          <div class="company-title-info">
+            <h4>Domino's Pizza (US)</h4>
+            <span class="company-date-badge">January 2022 – October 2022</span>
+          </div>
+        </div>
+        <ul class="company-bullet-list">
+          <li>Processed customer orders and updated customer information.</li>
+          <li>Assisted with inquiries, order modifications, and delivery concerns.</li>
+          <li>Resolved complaints while maintaining excellent customer service.</li>
+        </ul>
+        <a href="https://www.facebook.com/transterraconnect/" target="_blank" rel="noopener noreferrer" class="company-link-btn">
+          View Account Details
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+      </div>
+
+      <!-- 2. Pizza Hotline (Canada) -->
+      <div class="glass-card company-exp-card reveal">
+        <div class="company-card-top">
+          <div class="company-logo-avatar">🍁</div>
+          <div class="company-title-info">
+            <h4>Pizza Hotline (Canada)</h4>
+            <span class="company-date-badge">August 2021 – December 2021</span>
+          </div>
+        </div>
+        <ul class="company-bullet-list">
+          <li>Handled incoming calls and accurately processed food orders.</li>
+          <li>Managed customer inquiries, order details, and delivery concerns.</li>
+          <li>Provided prompt and professional customer support.</li>
+        </ul>
+        <a href="https://www.pizzahotline.ca/" target="_blank" rel="noopener noreferrer" class="company-link-btn">
+          Visit Company Website
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+      </div>
+
+      <!-- 3. Transterra Connect (BPO) -->
+      <div class="glass-card company-exp-card reveal">
+        <div class="company-card-top">
+          <div class="company-logo-avatar">🌐</div>
+          <div class="company-title-info">
+            <h4>Transterra Connect (BPO)</h4>
+            <span class="company-date-badge">January 2021 – July 2021</span>
+          </div>
+        </div>
+        <ul class="company-bullet-list">
+          <li>Transcribed audio recordings into accurate written documents.</li>
+          <li>Handled projects involving music, general recordings, hotel reservations, and ticket bookings.</li>
+          <li>Maintained accuracy in grammar, spelling, and punctuation while meeting deadlines.</li>
+        </ul>
+        <a href="https://www.facebook.com/transterraconnect/" target="_blank" rel="noopener noreferrer" class="company-link-btn">
+          Visit BPO Facebook Page
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+      </div>
+
+      <!-- 4. Agents Only Network -->
+      <div class="glass-card company-exp-card reveal">
+        <div class="company-card-top">
+          <div class="company-logo-avatar">⚡</div>
+          <div class="company-title-info">
+            <h4>Agents Only</h4>
+            <span class="company-date-badge">Network Partner</span>
+          </div>
+        </div>
+        <ul class="company-bullet-list">
+          <li>On-demand distributed customer solutions and real-time remote collaboration.</li>
+          <li>Delivered fast-turnaround operations and ticket resolution.</li>
+          <li>Maintained high quality compliance and bilingual communication standards.</li>
+        </ul>
+        <a href="https://www.agentsonly.com/" target="_blank" rel="noopener noreferrer" class="company-link-btn">
+          Visit Agents Only Platform
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project 1: Silken Flora (Dedicated Showcase Section) -->
+  <section id="silken-flora">
+    <div class="section-header reveal">
+      <span class="section-badge">&#10022; Project Showcase 01</span>
+      <h2 class="section-title">Silken Flora</h2>
+      <p class="section-desc">Boutique E-Commerce &amp; Floral Brand Identity (Solano, Nueva Vizcaya) &#8226; Everlasting handcrafted blooms, custom bouquet studio UX, and commercial creative.</p>
+    </div>
+
+    <div class="project-showcase-container reveal">
+      <div class="project-showcase-card">
+        <div class="project-showcase-grid">
+          <!-- Left: Compact Video Player with Video Switcher Tabs -->
+          <div class="showcase-video-col">
+            <div class="showcase-tabs-bar">
+              <button type="button" class="showcase-tab-btn active" onclick="switchShowcaseTab('silken', 'silken_commercial.mp4', 'project_silken_flora.png', '&#x1F3AC; 60s 4K Commercial Creative', this)">
+                &#x1F3AC; 60s Commercial
+              </button>
+              <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('silken', 'silken_site_walkthrough.mp4', 'silken_bloom_elegance.png', '&#x1F4BB; Storefront &amp; Custom Studio Walkthrough', this)">
+                &#x1F4BB; Site Walkthrough
+              </button>
+            </div>
+            <div class="showcase-video-box">
+              <button type="button" class="video-sound-pill" id="silken-sound-pill" onclick="toggleVideoSound('silken', this)" title="Click to Turn Sound On">
+                <svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                <span class="sound-text">Muted &#8226; Turn Sound On</span>
+              </button>
+              <video id="silken-video" src="silken_commercial.mp4" poster="project_silken_flora.png" autoplay muted loop playsinline controls preload="auto"></video>
+            </div>
+            <div class="showcase-video-caption">
+              <span id="silken-caption">&#x1F3AC; 60s 4K Commercial Creative</span>
+              <span class="pill">&#x1F338; Silken Flora Media</span>
+            </div>
+          </div>
+
+          <!-- Right: Details, Thumbnail Gallery, and Chips -->
+          <div class="showcase-info-col">
+            <div class="showcase-header-row">
+              <div class="showcase-icon-avatar">&#x1F338;</div>
+              <div class="showcase-title-wrap">
+                <h3>Silken Flora Boutique</h3>
+                <span class="sub">E-Commerce &#8226; Floral Brand Identity</span>
+              </div>
+            </div>
+            <p class="showcase-desc">
+              Bespoke digital brand identity and storefront mock project for a handcrafted fuzzy-wire and satin ribbon floral boutique in Solano, Nueva Vizcaya. Includes custom bouquet studio UX, catalog curation, and 4K commercial pacing.
+            </p>
+
+            <div class="gallery-preview-wrap">
+              <div class="gallery-preview-label">
+                <span>Project Gallery (Click to Enlarge)</span>
+                <span>5 Assets</span>
+              </div>
+              <div class="gallery-thumbs-grid">
+                <div class="gallery-thumb-item" onclick="openImageLightbox('project_silken_flora.png', 'Silken Flora &#8226; Handcrafted Forever Blooms Hero Poster')" title="Click to view full size">
+                  <img src="project_silken_flora.png" alt="Silken Flora Hero" loading="lazy">
+                  <span class="gallery-thumb-badge">Poster</span>
+                </div>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('silken_bloom_elegance.png', 'Silken Flora &#8226; Lasting Bloom Elegance Editorial Poster')" title="Click to view full size">
+                  <img src="silken_bloom_elegance.png" alt="Silken Bloom Elegance" loading="lazy">
+                  <span class="gallery-thumb-badge">Editorial</span>
+                </div>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('silken_bridal.jpg', 'Silken Flora &#8226; Cascading Bridal Bouquet')" title="Click to view full size">
+                  <img src="silken_bridal.jpg" alt="Silken Bridal Bouquet" loading="lazy">
+                  <span class="gallery-thumb-badge">Bridal</span>
+                </div>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('silken_bloom_box.jpg', 'Silken Flora &#8226; Potted Everlasting Bloom Box')" title="Click to view full size">
+                  <img src="silken_bloom_box.jpg" alt="Silken Bloom Box" loading="lazy">
+                  <span class="gallery-thumb-badge">Bloom Box</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-tags">
+              <span class="showcase-tag">&#x1F338; Brand Identity</span>
+              <span class="showcase-tag">&#x1F4BB; Web &amp; UI Design</span>
+              <span class="showcase-tag">&#x1F3AC; 60s Commercial</span>
+              <span class="showcase-tag">&#x1F6CD;&#xFE0F; Bouquet Studio</span>
+              <span class="showcase-tag">&#x1F490; Everlasting Blooms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project 2: The Informata (Dedicated Showcase Section) -->
+  <section id="the-informata">
+    <div class="section-header reveal">
+      <span class="section-badge">&#10022; Project Showcase 02</span>
+      <h2 class="section-title">The Informata</h2>
+      <p class="section-desc">Student Publication &amp; Digital Broadcast Media (Aldersgate College) &#8226; Eyewitness to Evolving Stories: editorial board branding, news portal design, and broadcast motion.</p>
+    </div>
+
+    <div class="project-showcase-container reveal">
+      <div class="project-showcase-card">
+        <div class="project-showcase-grid">
+          <!-- Left: Compact Video Player with Video Switcher Tabs -->
+          <div class="showcase-video-col">
+            <div class="showcase-tabs-bar">
+              <button type="button" class="showcase-tab-btn active" onclick="switchShowcaseTab('informata', 'informata_intro.mp4', 'project_informata_banner.jpg', '&#x1F3AC; News Broadcasting Intro', this)">
+                &#x1F3AC; Broadcast Intro
+              </button>
+              <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('informata', 'informata_showcase.mp4', 'project_informata_logo.jpg', '&#x1F4FA; Full Publication Showcase', this)">
+                &#x1F4FA; Showcase
+              </button>
+              <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('informata', 'informata_commercial.mp4', 'informata_card1.jpg', '&#x1F3A5; Broadcast Commercial Reel', this)">
+                &#x1F3A5; Broadcast Reel
+              </button>
+            </div>
+            <div class="showcase-video-box">
+              <button type="button" class="video-sound-pill" id="informata-sound-pill" onclick="toggleVideoSound('informata', this)" title="Click to Turn Sound On">
+                <svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                <span class="sound-text">Muted &#8226; Turn Sound On</span>
+              </button>
+              <video id="informata-video" src="informata_intro.mp4" poster="project_informata_banner.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+            </div>
+            <div class="showcase-video-caption">
+              <span id="informata-caption">&#x1F3AC; News Broadcasting Intro</span>
+              <span class="pill">&#x1F4F0; The Informata Media</span>
+            </div>
+          </div>
+
+          <!-- Right: Details, Thumbnail Gallery, and Chips -->
+          <div class="showcase-info-col">
+            <div class="showcase-header-row">
+              <div class="showcase-icon-avatar">&#x2712;&#xFE0F;</div>
+              <div class="showcase-title-wrap">
+                <h3>The Informata Publication</h3>
+                <span class="sub">Aldersgate College &#8226; Broadcast Media</span>
+              </div>
+            </div>
+            <p class="showcase-desc">
+              Official editorial publication and multimedia broadcast identity for Aldersgate College (<em>"Eyewitness to Evolving Stories"</em>). Directed editorial board graphics, digital publication layouts, broadcast intro motion graphics, and news portal styling.
+            </p>
+
+            <div class="gallery-preview-wrap">
+              <div class="gallery-preview-label">
+                <span>Editorial Gallery (Click to Enlarge)</span>
+                <span>6 Assets</span>
+              </div>
+              <div class="gallery-thumbs-grid">
+                <div class="gallery-thumb-item" onclick="openImageLightbox('project_informata_banner.jpg', 'The Informata &#8226; Editorial Board Official Banner AY 2025-2026')" title="Click to view full size">
+                  <img src="project_informata_banner.jpg" alt="The Informata Banner" loading="lazy">
+                  <span class="gallery-thumb-badge">Banner</span>
+                </div>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('project_informata_logo.jpg', 'The Informata &#8226; 3D Gold &amp; Black Emblem Seal')" title="Click to view full size">
+                  <img src="project_informata_logo.jpg" alt="Informata Seal" loading="lazy">
+                  <span class="gallery-thumb-badge">3D Seal</span>
+                </div>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('informata_card1.jpg', 'The Informata &#8226; Staff Editorial Profile Card 1')" title="Click to view full size">
+                  <img src="informata_card1.jpg" alt="Editorial Staff Card 1" loading="lazy">
+                  <span class="gallery-thumb-badge">Staff 01</span>
+                </div>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('informata_card2.jpg', 'The Informata &#8226; Staff Editorial Profile Card 2')" title="Click to view full size">
+                  <img src="informata_card2.jpg" alt="Editorial Staff Card 2" loading="lazy">
+                  <span class="gallery-thumb-badge">Staff 02</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-tags">
+              <span class="showcase-tag">&#x1F4F0; Editorial Design</span>
+              <span class="showcase-tag">&#x1F3A5; Broadcast Motion</span>
+              <span class="showcase-tag">&#x1F3A8; Brand Guidelines</span>
+              <span class="showcase-tag">&#x270D;&#xFE0F; Journalism</span>
+              <span class="showcase-tag">&#x1F4F1; News Portal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project 3: The Matcha Society (Dedicated Showcase Section) -->
+  <section id="the-matcha-society">
+    <div class="section-header reveal">
+      <span class="section-badge">&#10022; Project Showcase 03</span>
+      <h2 class="section-title">The Matcha Society</h2>
+      <p class="section-desc">Artisanal Beverage Branding, Commercial Creative &amp; Storefront UI &#8226; Japanese minimalist aesthetic, 30s TV ad with kinetic typography, and bottled lineup packaging.</p>
+    </div>
+
+    <div class="project-showcase-container reveal">
+      <div class="project-showcase-card">
+        <div class="project-showcase-grid">
+          <!-- Left: Compact Video Player -->
+          <div class="showcase-video-col">
+            <div class="showcase-tabs-bar">
+              <button type="button" class="showcase-tab-btn active">
+                &#x1F3AC; 30s TV Commercial Ad
+              </button>
+            </div>
+            <div class="showcase-video-box">
+              <button type="button" class="video-sound-pill" id="matcha-sound-pill" onclick="toggleVideoSound('matcha', this)" title="Click to Turn Sound On">
+                <svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                <span class="sound-text">Muted &#8226; Turn Sound On</span>
+              </button>
+              <video id="matcha-video" src="matcha_commercial.mp4" poster="matcha_poster1.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+            </div>
+            <div class="showcase-video-caption">
+              <span id="matcha-caption">&#x1F3AC; 30s TV Commercial Ad &#8226; Kinetic Typography</span>
+              <span class="pill">&#x1F375; The Matcha Society</span>
+            </div>
+          </div>
+
+          <!-- Right: Details, Thumbnail Gallery, and Chips -->
+          <div class="showcase-info-col">
+            <div class="showcase-header-row">
+              <div class="showcase-icon-avatar">&#x1F375;</div>
+              <div class="showcase-title-wrap">
+                <h3>The Matcha Society</h3>
+                <span class="sub">Artisanal Beverage Branding &#8226; Storefront UI</span>
+              </div>
+            </div>
+            <p class="showcase-desc">
+              Comprehensive branding and digital storefront mock project for an artisanal ceremonial matcha and craft coffee house. Features Japanese minimalist aesthetics, a 30-second commercial TV ad with kinetic typography and ASMR sound design, product packaging lineup, macro liquid splash cinematography, and desktop/mobile e-commerce experience.
+            </p>
+
+            <div class="gallery-preview-wrap">
+              <div class="gallery-preview-label">
+                <span>Beverage &amp; UI Gallery (Click to Enlarge)</span>
+                <span>6 Assets</span>
+              </div>
+              <div class="gallery-thumbs-grid">
+                <div class="gallery-thumb-item" onclick="openImageLightbox('matcha_poster1.jpg', 'The Matcha Society &#8226; Signature Artisanal Ceremonial Matcha Poster')" title="Click to view full size">
+                  <img src="matcha_poster1.jpg" alt="Matcha Signature Poster" loading="lazy">
+                  <span class="gallery-thumb-badge">Signature</span>
+                </div>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('matcha_poster2.jpg', 'The Matcha Society &#8226; Craft Cold Brew &amp; Hojicha Reserve')" title="Click to view full size">
+                  <img src="matcha_poster2.jpg" alt="Matcha Hojicha Poster" loading="lazy">
+                  <span class="gallery-thumb-badge">Hojicha</span>
+                </div>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('matcha_poster3.png', 'The Matcha Society &#8226; Bottled Lineup &amp; Glass Bottle Packaging')" title="Click to view full size">
+                  <img src="matcha_poster3.png" alt="Matcha Packaging Lineup" loading="lazy">
+                  <span class="gallery-thumb-badge">Lineup</span>
+                </div>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('matcha_macro1.jpg', 'The Matcha Society &#8226; Ceremonial Grade Matcha Powder Macro Explosion')" title="Click to view full size">
+                  <img src="matcha_macro1.jpg" alt="Matcha Macro Powder" loading="lazy">
+                  <span class="gallery-thumb-badge">Macro 01</span>
+                </div>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('matcha_macro2.jpg', 'The Matcha Society &#8226; Strawberry Ube Matcha Latte Cinematography')" title="Click to view full size">
+                  <img src="matcha_macro2.jpg" alt="Matcha Splash Cinematography" loading="lazy">
+                  <span class="gallery-thumb-badge">Macro 02</span>
+                </div>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('matcha_full_site.png', 'The Matcha Society &#8226; Responsive Storefront &amp; Digital Menu UI Design')" title="Click to view full size">
+                  <img src="matcha_full_site.png" alt="Matcha Storefront UI" loading="lazy">
+                  <span class="gallery-thumb-badge">Storefront UI</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-tags">
+              <span class="showcase-tag">&#x1F375; Brand Identity</span>
+              <span class="showcase-tag">&#x1F3AC; 30s TV Ad</span>
+              <span class="showcase-tag">&#x2615; Packaging Design</span>
+              <span class="showcase-tag">&#x1F4BB; Storefront UI</span>
+              <span class="showcase-tag">&#x1F4F8; Macro Motion</span>
+              <span class="showcase-tag">&#x1F1EF;&#x1F1F5; Minimalist</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Short Animations Section (Miniature 1.5-inch Phone Screen Design) -->
+  <section id="short-animations">
+    <div class="section-header reveal">
+      <span class="section-badge">&#10022; Short-Form Visuals</span>
+      <h2 class="section-title">Short Animations</h2>
+      <p class="section-desc">Selected kinetic short animations, 3D character gift namings, and high-impact motion graphics. Click any phone to play with sound.</p>
+    </div>
+
+    <div class="short-animations-grid">
+      <!-- 1. KAWAII GN -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('fIVMJ_rrnVM', 'KAWAII GN', '3D Gift Naming & Character Motion')">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="yt_short1.jpg" alt="KAWAII GN" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">KAWAII GN</div>
+          <div class="short-category">Gift Naming</div>
+          <a href="https://youtube.com/shorts/fIVMJ_rrnVM" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Joker GN -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('58W8OpoXSP8', 'Joker GN', 'Kinetic Character FX')">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="yt_short2.jpg" alt="Joker GN" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">Joker GN</div>
+          <div class="short-category">Motion FX</div>
+          <a href="https://youtube.com/shorts/58W8OpoXSP8" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. KYLIE Gift Naming -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('uR5Mh79LqkE', 'KYLIE Gift Naming', 'Gift Naming Animation')">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="yt_short3.jpg" alt="KYLIE Gift Naming" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">KYLIE GN</div>
+          <div class="short-category">Gift Naming</div>
+          <a href="https://youtube.com/shorts/uR5Mh79LqkE" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. GWPO Gift Naming -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('KKvEawEffuY', 'GWPO Gift Naming', 'Kinetic 3D Typography')">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="yt_short4.jpg" alt="GWPO Gift Naming" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">GWPO GN</div>
+          <div class="short-category">Gift Naming</div>
+          <a href="https://youtube.com/shorts/KKvEawEffuY" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5. DENISE Gift Naming -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('qr_kUTrDDrs', 'DENISE Gift Naming', 'Gift Naming Animation')">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="yt_short5.jpg" alt="DENISE Gift Naming" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">DENISE GN</div>
+          <div class="short-category">Gift Naming</div>
+          <a href="https://youtube.com/shorts/qr_kUTrDDrs" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 6. YIEE Gift Naming -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('_MeCJ8pOu3E', 'YIEE Gift Naming', 'Character Animation FX')">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="yt_short6.jpg" alt="YIEE Gift Naming" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">YIEE GN</div>
+          <div class="short-category">Gift Naming</div>
+          <a href="https://youtube.com/shorts/_MeCJ8pOu3E" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 7. KYLIE Animation -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('bkmrGzmrekg', 'KYLIE Animation', '3D Motion Animation')">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="yt_short7.jpg" alt="KYLIE Animation" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">KYLIE</div>
+          <div class="short-category">3D Animation</div>
+          <a href="https://youtube.com/shorts/bkmrGzmrekg" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 8. LYRA Gift Naming -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('92DuV87W4LU', 'LYRA Gift Naming', '3D Gift Naming & Character Motion')">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="yt_short8.jpg" alt="LYRA Gift Naming" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">LYRA GN</div>
+          <div class="short-category">Gift Naming</div>
+          <a href="https://youtube.com/shorts/92DuV87W4LU" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 9. OSAWA Gift Naming -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('LgRHr6JlbsQ', 'OSAWA Gift Naming', '3D Gift Naming & Character Motion')">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="yt_short9.jpg" alt="OSAWA Gift Naming" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">OSAWA GN</div>
+          <div class="short-category">Gift Naming</div>
+          <a href="https://youtube.com/shorts/LgRHr6JlbsQ" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Collaboration Studio (Placed at Lower Part of Portfolio as requested) -->
+  <section id="interactive-hub">
+    <div class="section-header reveal">
+      <span class="section-badge">Client & Visitor Hub</span>
+      <h2 class="section-title">Interactive Collaboration Studio</h2>
+      <p class="section-desc">Select your project needs below to instantly calculate fit, estimated turnaround, and book your inquiry.</p>
+    </div>
+
+    <div class="interactive-hub-container reveal">
+      <div class="interactive-hub-grid">
+        <!-- Interactive Controls -->
+        <div class="project-selector-col">
+          <h4>Configure Your Project Requirement:</h4>
+
+          <div class="choice-group-title">1. What Service Do You Need?</div>
+          <div class="interactive-pill-group" id="serviceGroup">
+            <div class="calc-pill selected" data-value="Video Editing & Reels">🎬 Video Editing & Reels</div>
+            <div class="calc-pill" data-value="Visual & Graphic Design">🎨 Visual & Graphic Design</div>
+            <div class="calc-pill" data-value="Customer Support (CSR)">🎧 Customer Support (CSR)</div>
+            <div class="calc-pill" data-value="Audio Transcription">✍️ Audio Transcription</div>
+          </div>
+
+          <div class="choice-group-title">2. Engagement Type</div>
+          <div class="interactive-pill-group" id="engagementGroup">
+            <div class="calc-pill selected" data-value="Project-Based">🚀 Project-Based</div>
+            <div class="calc-pill" data-value="Part-Time Contract">⏳ Part-Time</div>
+            <div class="calc-pill" data-value="Full-Time Remote">💼 Full-Time Remote</div>
+            <div class="calc-pill" data-value="Urgent Rush Deliverable">⚡ Urgent Delivery</div>
+          </div>
+
+          <div class="choice-group-title">3. Primary Deliverable Focus</div>
+          <div class="interactive-pill-group" id="deliverableGroup">
+            <div class="calc-pill selected" data-value="Short Form Reels & TikTok">📱 TikTok / Reels</div>
+            <div class="calc-pill" data-value="Logo & Brand Identity">✦ Logo & Branding</div>
+            <div class="calc-pill" data-value="Order & Customer Inquiries">🍕 CSR Operations</div>
+            <div class="calc-pill" data-value="Audio/Video Verbatim Transcript">📝 Accurate Transcripts</div>
+          </div>
+        </div>
+
+        <!-- Live Instant Output & Inquiry Trigger -->
+        <div class="interactive-output-card">
+          <div class="match-header">
+            <span class="match-badge">🟢 Instant Match Status</span>
+            <span class="match-score" id="matchScore">100% Fit</span>
+          </div>
+
+          <div class="live-summary-item">
+            <strong>Selected Core Service:</strong>
+            <span id="sumService" style="color: var(--gold-light);">Video Editing & Reels</span>
+          </div>
+
+          <div class="live-summary-item">
+            <strong>Recommended Software Suite:</strong>
+            <span id="sumTools" style="color: #ffffff;">CapCut • Canva • Google Drive</span>
+          </div>
+
+          <div class="live-summary-item">
+            <strong>Availability & Turnaround:</strong>
+            <span id="sumTurnaround" style="color: #90ee90;">🟢 Available Immediately (24–48h initial preview)</span>
+          </div>
+
+          <a href="mailto:jhamceem@gmail.com?subject=Project%20Inquiry%20via%20Portfolio&body=Hi%20Jhamcee,%20I%20would%20like%20to%20discuss%20a%20project%20for%20Video%20Editing%20&%20Reels." class="btn-send-inquiry" id="btnInquiryEmail">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Send Pre-Filled Inquiry
+          </a>
+        </div>
+      </div>
+
+      <!-- Visitor Appreciation & Vibe Wall with Live Click Counters -->
+      <div class="vibe-wall-wrap">
+        <div class="vibe-wall-title">Leave a Visitor Reaction & Vibe Check:</div>
+        <div class="vibe-btn-group">
+          <button type="button" class="vibe-btn" data-vibe="impressed">
+            🌟 Outstanding Portfolio <span class="vibe-counter" id="cntImpressed">142</span>
+          </button>
+          <button type="button" class="vibe-btn" data-vibe="hire">
+            🚀 Ready to Hire <span class="vibe-counter" id="cntHire">89</span>
+          </button>
+          <button type="button" class="vibe-btn" data-vibe="design">
+            🎨 Love the Aesthetics <span class="vibe-counter" id="cntDesign">116</span>
+          </button>
+          <button type="button" class="vibe-btn" data-vibe="vibes">
+            ☕ Send Good Vibes <span class="vibe-counter" id="cntVibes">95</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get In Touch Section (Phone Number Removed as requested) -->
+  <section id="contact">
+    <div class="section-header reveal">
+      <span class="section-badge">Let's Connect</span>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-desc">I am eager to contribute my communication, customer service, and multimedia skills to your company.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Gmail Direct Compose Action -->
+      <a href="mailto:jhamceem@gmail.com" class="glass-card contact-card reveal">
+        <div class="contact-avatar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </div>
+        <div class="contact-info">
+          <h4>Gmail</h4>
+          <p>jhamceem@gmail.com</p>
+          <span class="action-hint">Click to send direct email</span>
+        </div>
+      </a>
+
+      <!-- Quick Message Action -->
+      <a href="mailto:jhamceem@gmail.com?subject=Job%20Opportunity%20/%20Project%20Collaboration" class="glass-card contact-card reveal">
+        <div class="contact-avatar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </div>
+        <div class="contact-info">
+          <h4>Direct Message</h4>
+          <p>Start a Conversation</p>
+          <span class="action-hint">Available for hire & immediate work</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 <strong>Jhamcee Eve Miran</strong> • Visual Artist • Video Editor • Customer Support • Transcriptionist</p>
+    <p style="margin-top: 6px;">
+      Hosted locally at <a href="http://localhost:5000">http://localhost:5000</a> • 
+      <a href="/portfolio-jhamcee-miran.zip" download="portfolio-jhamcee-miran.zip" style="color: var(--gold-light); font-weight: 700; text-decoration: underline;">Download Full ZIP Archive (277 MB)</a>
+    </p>
+  </footer>
+
+  <!-- Back to Top Floating Button -->
+  <button type="button" class="btn-back-top" id="backToTopBtn" title="Back to Top">↑</button>
+
+  <!-- Interactive Floating Audio Equalizer Widget -->
+  <div class="audio-pill-widget" id="audioToggleBtn" title="Toggle Calm Morning Piano Music">
+    <div class="equalizer-bars" id="eqBars">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <span class="audio-pill-text" id="audioBtnText">Morning Piano • Playing</span>
+  </div>
+
+  <!-- Video Introduction Spotlight Modal -->
+  <div class="video-modal-backdrop" id="videoIntroModal">
+    <div class="video-modal-container">
+      <button type="button" class="modal-close-btn" id="closeVideoIntroBtn">✕</button>
+      <h3 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.7rem; color: var(--gold-light);" id="modalTitle">Video Introduction • Jhamcee Eve Miran</h3>
+      <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;" id="modalSubtitle">Jhamcee Eve Miran • Visual Artist, Video Editor &amp; Digital Professional</p>
+      
+      <div class="modal-video-stage" id="modalVideoStage" style="margin-top: 14px; position: relative; border-radius: 16px; overflow: hidden; background: #000; border: 1px solid var(--border-gold-subtle); display: flex; align-items: center; justify-content: center; min-height: 260px;">
+        <video id="modalVideoPlayer" src="video_introduction.mp4" controls playsinline preload="auto" style="width: 100%; max-height: 480px; display: block; margin: 0 auto; object-fit: contain;"></video>
+        <iframe id="modalShortsIframe" src="" style="width: 100%; max-width: 320px; height: 500px; border: none; border-radius: 12px; display: none; aspect-ratio: 9/16;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
+      <p class="modal-intro-text" id="modalDesc" style="margin-top: 14px; font-size: 0.82rem; color: #ede6dc; line-height: 1.6;">
+        Welcome to my creative portfolio! Watch my personal video introduction — covering my background in visual design, video editing, customer service, and audio transcription.
+      </p>
+
+      <div id="modalButtonsRow" style="margin-top: 18px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://docs.google.com/document/d/14fUvTU3-ZGVhouRakO5tNvDa5ulJ2rEQ/edit?usp=drivesdk&ouid=108290393413478515857&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="btn-drive-watch" style="font-size: 0.72rem; width: auto; padding: 6px 14px;">
+          View Resume ↗
+        </a>
+        <a href="mailto:jhamceem@gmail.com" class="btn-drive-watch" style="font-size: 0.72rem; width: auto; padding: 6px 14px;">
+          Direct Message ✉
+        </a>
+        <a href="video_introduction.mp4" download="Jhamcee_Eve_Miran_Video_Introduction.mp4" class="btn-drive-watch" style="font-size: 0.72rem; background: var(--grad-gold-btn-hover); width: auto; padding: 6px 14px;">
+          Download Video MP4 ↓
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal for Full Size Project Assets -->
+  <div id="imageLightboxModal" class="lightbox-modal" onclick="closeImageLightbox(event)">
+    <div class="lightbox-box" onclick="event.stopPropagation()">
+      <img id="lightboxModalImg" src="" alt="Enlarged Project Asset" class="lightbox-img">
+      <div class="lightbox-footer">
+        <span id="lightboxModalCaption" class="lightbox-caption">Asset Preview</span>
+        <button type="button" class="lightbox-close-btn" onclick="closeImageLightbox()">Close ✕</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 1. Scroll Progress & Navigation State
+    const progressBar = document.getElementById('progress-bar');
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTopBtn');
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+
+      if (winScroll > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+
+      if (winScroll > 350) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 2. IntersectionObserver for Reveal Animations
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Handle Direct Hash Linking & Instant Scroll
+    if (window.location.hash) {
+      setTimeout(() => {
+        const hashEl = document.querySelector(window.location.hash);
+        if (hashEl) {
+          hashEl.scrollIntoView({ behavior: 'auto' });
+          document.querySelectorAll('.reveal').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight + 100) {
+              el.classList.add('active');
+            }
+          });
+        }
+      }, 60);
+    }
+
+    // 3. YouTube Background Music: Automatic Play Without Clicking Play (Hidden Player)
+    // Soft volume (18%) - Serene, peaceful morning piano music
+    let ytPlayer = null;
+    let isMusicPlaying = true;
+
+    window.onYouTubeIframeAPIReady = function() {
+      ytPlayer = new YT.Player('yt-player', {
+        height: '1',
+        width: '1',
+        videoId: 'AQ43u_CbGig', // Morning Meditation [a calm piano music session]
+        playerVars: {
+          autoplay: 1,
+          loop: 1,
+          playlist: 'AQ43u_CbGig,J7y2-L-0fJ4',
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+          modestbranding: 1,
+          rel: 0
+        },
+        events: {
+          'onReady': (event) => {
+            event.target.setVolume(18); // Soft volume as instructed
+            tryAutoplay();
+          }
+        }
+      });
+    };
+
+    function tryAutoplay() {
+      if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
+        ytPlayer.setVolume(18);
+        ytPlayer.playVideo();
+        updateAudioWidgetState(true);
+      }
+    }
+
+    // Auto-start on first natural user interaction (scroll, move, touch)
+    const autoPlayGestures = ['pointerdown', 'touchstart', 'scroll', 'mousemove', 'keydown', 'wheel'];
+    function autoStartMusic() {
+      tryAutoplay();
+      autoPlayGestures.forEach(evt => window.removeEventListener(evt, autoStartMusic));
+    }
+    autoPlayGestures.forEach(evt => window.addEventListener(evt, autoStartMusic, { passive: true, once: true }));
+
+    // Floating Audio Pill Toggle
+    const audioToggleBtn = document.getElementById('audioToggleBtn');
+    const eqBars = document.getElementById('eqBars');
+    const audioBtnText = document.getElementById('audioBtnText');
+
+    function updateAudioWidgetState(playing) {
+      isMusicPlaying = playing;
+      if (playing) {
+        eqBars.classList.remove('paused');
+        audioBtnText.textContent = 'Morning Piano • Playing';
+      } else {
+        eqBars.classList.add('paused');
+        audioBtnText.textContent = 'Music Muted';
+      }
+    }
+
+    if (audioToggleBtn) {
+      audioToggleBtn.addEventListener('click', () => {
+        if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') return;
+        if (isMusicPlaying) {
+          ytPlayer.pauseVideo();
+          updateAudioWidgetState(false);
+        } else {
+          ytPlayer.setVolume(18);
+          ytPlayer.playVideo();
+          updateAudioWidgetState(true);
+        }
+      });
+    }
+
+    // 4. Interactive Ethereal Golden Particles Canvas
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class GoldParticle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2.2 + 0.6;
+        this.speedY = -(Math.random() * 0.45 + 0.15);
+        this.speedX = (Math.random() - 0.5) * 0.35;
+        this.opacity = Math.random() * 0.65 + 0.2;
+        this.fade = Math.random() * 0.006 + 0.003;
+      }
+      update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+        this.opacity += this.fade;
+        if (this.opacity > 0.85 || this.opacity < 0.15) {
+          this.fade = -this.fade;
+        }
+        if (this.y < -10 || this.x < -10 || this.x > canvas.width + 10) {
+          this.reset();
+          this.y = canvas.height + 5;
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(245, 217, 122, ${this.opacity})`;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = 'rgba(212, 175, 55, 0.65)';
+        ctx.fill();
+      }
+    }
+
+    const particleCount = Math.min(42, Math.floor(window.innerWidth / 30));
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new GoldParticle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // 5. Glitter Wave Sparkles Canvas
+    const glitterCanvas = document.getElementById('glitter-canvas');
+    const gctx = glitterCanvas.getContext('2d');
+    let sparkles = [];
+
+    function resizeGlitterCanvas() {
+      glitterCanvas.width = window.innerWidth;
+      glitterCanvas.height = 110;
+    }
+    window.addEventListener('resize', resizeGlitterCanvas);
+    resizeGlitterCanvas();
+
+    class WaveSparkle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * glitterCanvas.width;
+        this.y = Math.random() * glitterCanvas.height * 0.7 + 10;
+        this.size = Math.random() * 3 + 1;
+        this.maxSize = this.size + Math.random() * 2;
+        this.growth = (Math.random() - 0.5) * 0.1;
+        this.opacity = Math.random() * 0.7 + 0.3;
+        this.life = Math.random() * 100 + 40;
+      }
+      update() {
+        this.life--;
+        this.size += this.growth;
+        if (this.size > this.maxSize || this.size < 0.8) this.growth = -this.growth;
+        if (this.life <= 0) this.reset();
+      }
+      draw() {
+        gctx.save();
+        gctx.translate(this.x, this.y);
+        gctx.fillStyle = `rgba(255, 245, 190, ${this.opacity})`;
+        gctx.shadowColor = 'rgba(255, 215, 0, 0.9)';
+        gctx.shadowBlur = 10;
+        
+        // 4-pointed sparkle star
+        gctx.beginPath();
+        gctx.moveTo(0, -this.size * 2);
+        gctx.quadraticCurveTo(0, 0, this.size * 2, 0);
+        gctx.quadraticCurveTo(0, 0, 0, this.size * 2);
+        gctx.quadraticCurveTo(0, 0, -this.size * 2, 0);
+        gctx.quadraticCurveTo(0, 0, 0, -this.size * 2);
+        gctx.fill();
+        gctx.restore();
+      }
+    }
+
+    const sparkleCount = Math.min(30, Math.floor(window.innerWidth / 40));
+    for (let i = 0; i < sparkleCount; i++) {
+      sparkles.push(new WaveSparkle());
+    }
+
+    function animateSparkles() {
+      gctx.clearRect(0, 0, glitterCanvas.width, glitterCanvas.height);
+      sparkles.forEach(s => {
+        s.update();
+        s.draw();
+      });
+      requestAnimationFrame(animateSparkles);
+    }
+    animateSparkles();
+
+    // 6. Interactive Cursor Spotlight
+    const spotlight = document.getElementById('cursor-spotlight');
+    window.addEventListener('pointermove', (e) => {
+      spotlight.style.left = e.clientX + 'px';
+      spotlight.style.top = e.clientY + 'px';
+    });
+
+    // 7. Interactive 3D Parallax Tilt on Hero Photo & Logo
+    const heroPhoto = document.getElementById('heroPhotoFrame');
+    if (heroPhoto) {
+      window.addEventListener('mousemove', (e) => {
+        const rect = heroPhoto.getBoundingClientRect();
+        const x = e.clientX - (rect.left + rect.width / 2);
+        const y = e.clientY - (rect.top + rect.height / 2);
+        const rotX = (y / rect.height) * -8;
+        const rotY = (x / rect.width) * 8;
+        heroPhoto.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+      heroPhoto.addEventListener('mouseleave', () => {
+        heroPhoto.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      });
+    }
+
+    // 8. Interactive Video Showcase Modal (Plays Uploaded Commercial Video, Drives & YouTube Shorts)
+    const videoModal = document.getElementById('videoIntroModal');
+    const openVideoBtn = document.getElementById('openVideoIntroBtn');
+    const closeVideoBtn = document.getElementById('closeVideoIntroBtn');
+    const modalVideoPlayer = document.getElementById('modalVideoPlayer');
+    const modalShortsIframe = document.getElementById('modalShortsIframe');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalButtonsRow = document.getElementById('modalButtonsRow');
+
+    function openVideoPlayerModal(title, desc, videoSrc) {
+      if (!videoModal) return;
+      if (title) modalTitle.textContent = title;
+      if (modalSubtitle) modalSubtitle.textContent = 'Jhamcee Eve Miran • Visual Artist & Video Editor';
+      if (desc) modalDesc.textContent = desc;
+
+      if (modalShortsIframe) {
+        modalShortsIframe.style.display = 'none';
+        modalShortsIframe.src = '';
+      }
+
+      if (modalVideoPlayer && videoSrc) {
+        modalVideoPlayer.style.display = 'block';
+        modalVideoPlayer.src = videoSrc;
+        modalVideoPlayer.muted = false; // Turn sound on once play button is clicked
+        modalVideoPlayer.volume = 1.0;
+        modalVideoPlayer.play().catch(e => console.log('Autoplay caught:', e));
+      }
+
+      if (modalButtonsRow) {
+        if (videoSrc === 'video_introduction.mp4') {
+          modalButtonsRow.innerHTML = `
+            <a href="https://docs.google.com/document/d/14fUvTU3-ZGVhouRakO5tNvDa5ulJ2rEQ/edit?usp=drivesdk&ouid=108290393413478515857&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="btn-drive-watch" style="font-size: 0.72rem; width: auto; padding: 6px 14px;">
+              View Resume ↗
+            </a>
+            <a href="mailto:jhamceem@gmail.com" class="btn-drive-watch" style="font-size: 0.72rem; width: auto; padding: 6px 14px;">
+              Direct Message ✉
+            </a>
+            <a href="video_introduction.mp4" download="Jhamcee_Eve_Miran_Video_Introduction.mp4" class="btn-drive-watch" style="font-size: 0.72rem; background: var(--grad-gold-btn-hover); width: auto; padding: 6px 14px;">
+              Download Video MP4 ↓
+            </a>
+          `;
+        } else {
+          modalButtonsRow.innerHTML = `
+            <a href="https://drive.google.com/file/d/1mZgNXj15fj6AId6jco_rOHbvU4_Dq1GC/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="btn-drive-watch" style="font-size: 0.72rem; width: auto; padding: 6px 14px;">
+              Reel 1: INFORMATA ↗
+            </a>
+            <a href="https://drive.google.com/file/d/1FLuYQaEcxsVu14FuAe_BK6q3lXhn4mQD/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" class="btn-drive-watch" style="font-size: 0.72rem; width: auto; padding: 6px 14px;">
+              Reel 2: AI Graphics ↗
+            </a>
+            <a href="${videoSrc || 'video3_commercial_motion.mp4'}" download class="btn-drive-watch" style="font-size: 0.72rem; background: var(--grad-gold-btn-hover); width: auto; padding: 6px 14px;">
+              Download MP4 ↓
+            </a>
+          `;
+        }
+      }
+
+      // Pause morning piano background music while watching video
+      if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+        try { ytPlayer.pauseVideo(); } catch(e){}
+      }
+      videoModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function openYouTubeShortModal(shortId, title, category) {
+      if (!videoModal) return;
+      if (title) modalTitle.textContent = title;
+      if (modalSubtitle) modalSubtitle.textContent = `${category || 'Short Animation'} • YouTube Shorts (Sound Active)`;
+      if (modalDesc) modalDesc.textContent = 'High-energy kinetic short animation crafted by Jhamcee Eve Miran. Playing in responsive portrait preview with full sound.';
+
+      if (modalVideoPlayer) {
+        modalVideoPlayer.pause();
+        modalVideoPlayer.style.display = 'none';
+      }
+
+      if (modalShortsIframe && shortId) {
+        modalShortsIframe.style.display = 'block';
+        modalShortsIframe.src = `https://www.youtube.com/embed/${shortId}?autoplay=1&rel=0`;
+      }
+
+      if (modalButtonsRow) {
+        modalButtonsRow.innerHTML = `
+          <a href="https://youtube.com/shorts/${shortId}" target="_blank" rel="noopener noreferrer" class="btn-drive-watch" style="font-size: 0.72rem; width: auto; padding: 6px 16px; background: var(--grad-gold-btn-hover);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 4px;"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            Watch Full Short on YouTube ↗
+          </a>
+          <button type="button" class="btn-drive-watch" onclick="closeVideoPlayerModal()" style="font-size: 0.72rem; width: auto; padding: 6px 14px; background: rgba(255, 255, 255, 0.1); border-color: var(--border-gold-subtle); color: #ede6dc;">
+            Back to Portfolio ✕
+          </button>
+        `;
+      }
+
+      // Pause morning piano background music
+      if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+        try { ytPlayer.pauseVideo(); } catch(e){}
+      }
+      videoModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoPlayerModal() {
+      if (!videoModal) return;
+      videoModal.classList.remove('active');
+      document.body.style.overflow = '';
+      if (modalVideoPlayer) {
+        modalVideoPlayer.pause();
+      }
+      if (modalShortsIframe) {
+        modalShortsIframe.src = '';
+        modalShortsIframe.style.display = 'none';
+      }
+      // Resume morning piano music if it was previously playing
+      if (isMusicPlaying && ytPlayer && typeof ytPlayer.playVideo === 'function') {
+        try { ytPlayer.playVideo(); } catch(e){}
+      }
+    }
+
+    // Alias for backwards compatibility
+    window.openVideoModal = openVideoPlayerModal;
+    window.openVideoPlayerModal = openVideoPlayerModal;
+    window.openYouTubeShortModal = openYouTubeShortModal;
+    window.closeVideoPlayerModal = closeVideoPlayerModal;
+
+    if (openVideoBtn) {
+      openVideoBtn.addEventListener('click', () => {
+        openVideoPlayerModal(
+          'Video Introduction • Jhamcee Eve Miran',
+          'Welcome to my creative portfolio! Watch my personal video introduction — covering my background in visual design, video editing, customer service, and audio transcription.',
+          'video_introduction.mp4'
+        );
+      });
+    }
+
+    if (closeVideoBtn) {
+      closeVideoBtn.addEventListener('click', closeVideoPlayerModal);
+    }
+
+    if (videoModal) {
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) closeVideoPlayerModal();
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && videoModal && videoModal.classList.contains('active')) {
+        closeVideoPlayerModal();
+      }
+    });
+
+    // 9. Interactive Collaboration Studio Logic
+    let currentService = 'Video Editing & Reels';
+    let currentEngagement = 'Project-Based';
+    let currentDeliverable = 'Short Form Reels & TikTok';
+
+    function setupPillGroup(groupId, onSelect) {
+      const container = document.getElementById(groupId);
+      if (!container) return;
+      const pills = container.querySelectorAll('.calc-pill');
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          pills.forEach(p => p.classList.remove('selected'));
+          pill.classList.add('selected');
+          onSelect(pill.getAttribute('data-value'));
+          updateCalculatorUI();
+        });
+      });
+    }
+
+    setupPillGroup('serviceGroup', val => currentService = val);
+    setupPillGroup('engagementGroup', val => currentEngagement = val);
+    setupPillGroup('deliverableGroup', val => currentDeliverable = val);
+
+    function updateCalculatorUI() {
+      const sumService = document.getElementById('sumService');
+      const sumTools = document.getElementById('sumTools');
+      const sumTurnaround = document.getElementById('sumTurnaround');
+      const btnEmail = document.getElementById('btnInquiryEmail');
+
+      sumService.textContent = `${currentService} (${currentEngagement})`;
+
+      if (currentService.includes('Video')) {
+        sumTools.textContent = 'CapCut • Canva • Google Drive';
+      } else if (currentService.includes('Visual')) {
+        sumTools.textContent = 'Canva • Adobe Suite • Infographics Engine';
+      } else if (currentService.includes('Customer')) {
+        sumTools.textContent = 'CRM • Gmail • Google Sheets • MS Teams';
+      } else {
+        sumTools.textContent = 'Audio Headset • Google Docs • MS Word • Express Scribe';
+      }
+
+      if (currentEngagement.includes('Urgent')) {
+        sumTurnaround.textContent = '⚡ Priority Rush Queue (Same-Day / 24h)';
+      } else if (currentEngagement.includes('Full-Time')) {
+        sumTurnaround.textContent = '💼 Full-Time Dedicated 40h/week (Ready Immediately)';
+      } else {
+        sumTurnaround.textContent = '🟢 Available Immediately (24–48h initial preview)';
+      }
+
+      const subject = encodeURIComponent(`Inquiry for Jhamcee: ${currentService} [${currentEngagement}]`);
+      const body = encodeURIComponent(
+        `Hi Jhamcee,\n\nI reviewed your portfolio and would like to collaborate on:\n- Service: ${currentService}\n- Engagement: ${currentEngagement}\n- Deliverable Focus: ${currentDeliverable}\n\nPlease let me know your availability and next steps!\n\nBest regards,`
+      );
+      btnEmail.href = `mailto:jhamceem@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    // 10. Visitor Reaction Vibe Wall Handlers
+    document.querySelectorAll('.vibe-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const counter = this.querySelector('.vibe-counter');
+        let count = parseInt(counter.textContent) || 0;
+        if (!this.classList.contains('clicked')) {
+          count++;
+          counter.textContent = count;
+          this.classList.add('clicked');
+          this.style.transform = 'scale(1.1)';
+          setTimeout(() => this.style.transform = '', 300);
+        }
+      });
+    });
+
+    // 11. Dedicated Project Showcase Tab Switcher
+    const SVG_SOUND_MUTED = '<svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
+    const SVG_SOUND_ON = '<svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+
+    function switchShowcaseTab(projectId, videoSrc, posterSrc, captionText, buttonEl) {
+      const vid = document.getElementById(projectId + '-video');
+      const caption = document.getElementById(projectId + '-caption');
+      const soundPill = document.getElementById(projectId + '-sound-pill');
+      if (vid && videoSrc) {
+        vid.pause();
+        vid.src = videoSrc;
+        if (posterSrc) vid.poster = posterSrc;
+        vid.muted = true; // Always start muted as requested
+        vid.load();
+        vid.play().catch(e => console.log('Autoplay muted catch:', e));
+      }
+      if (soundPill) {
+        soundPill.classList.remove('sound-active');
+        soundPill.innerHTML = SVG_SOUND_MUTED + '<span class="sound-text">Muted &#8226; Turn Sound On</span>';
+      }
+      if (caption && captionText) {
+        caption.innerHTML = captionText;
+      }
+      if (buttonEl) {
+        const parent = buttonEl.closest('.showcase-tabs-bar');
+        if (parent) {
+          parent.querySelectorAll('.showcase-tab-btn').forEach(btn => btn.classList.remove('active'));
+          buttonEl.classList.add('active');
+        }
+      }
+    }
+
+    // 12. Video Sound Toggle (Unmute / Mute On Demand)
+    function toggleVideoSound(projectId, pillEl) {
+      const vid = document.getElementById(projectId + '-video');
+      if (!vid) return;
+
+      if (vid.muted) {
+        // Mute all other showcase videos so only one plays sound at a time
+        document.querySelectorAll('video').forEach(v => {
+          if (v !== vid && v.id !== 'modalVideoPlayer') {
+            v.muted = true;
+          }
+        });
+        document.querySelectorAll('.video-sound-pill').forEach(pill => {
+          if (pill !== pillEl) {
+            pill.classList.remove('sound-active');
+            pill.innerHTML = SVG_SOUND_MUTED + '<span class="sound-text">Muted &#8226; Turn Sound On</span>';
+          }
+        });
+
+        // Turn sound on
+        vid.muted = false;
+        vid.volume = 1.0;
+        vid.play().catch(e => console.log('Play on sound caught:', e));
+
+        if (pillEl) {
+          pillEl.classList.add('sound-active');
+          pillEl.innerHTML = SVG_SOUND_ON + '<span class="sound-text">Sound On &#8226; Click to Mute</span>';
+        }
+
+        // Pause morning piano background music
+        if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+          try { ytPlayer.pauseVideo(); } catch(e){}
+        }
+      } else {
+        // Turn sound off / mute
+        vid.muted = true;
+        if (pillEl) {
+          pillEl.classList.remove('sound-active');
+          pillEl.innerHTML = SVG_SOUND_MUTED + '<span class="sound-text">Muted &#8226; Turn Sound On</span>';
+        }
+
+        // Resume morning piano music if no other unmuted video is playing
+        if (isMusicPlaying && ytPlayer && typeof ytPlayer.playVideo === 'function') {
+          try { ytPlayer.playVideo(); } catch(e){}
+        }
+      }
+    }
+
+    // Sync native video control volume/mute events and video click
+    ['silken', 'informata', 'matcha'].forEach(id => {
+      const vid = document.getElementById(id + '-video');
+      const pill = document.getElementById(id + '-sound-pill');
+      if (vid) {
+        // Clicking video directly toggles unmute/mute
+        vid.addEventListener('click', (e) => {
+          if (vid.muted) {
+            toggleVideoSound(id, pill);
+          }
+        });
+
+        // Listen for volume/mute state change from native controls
+        vid.addEventListener('volumechange', () => {
+          if (vid.muted || vid.volume === 0) {
+            if (pill) {
+              pill.classList.remove('sound-active');
+              pill.innerHTML = SVG_SOUND_MUTED + '<span class="sound-text">Muted &#8226; Turn Sound On</span>';
+            }
+            const anySoundPlaying = Array.from(document.querySelectorAll('video')).some(v => !v.muted && v.volume > 0 && !v.paused && !v.ended);
+            if (!anySoundPlaying && isMusicPlaying && ytPlayer && typeof ytPlayer.playVideo === 'function') {
+              try { ytPlayer.playVideo(); } catch(err){}
+            }
+          } else {
+            if (pill) {
+              pill.classList.add('sound-active');
+              pill.innerHTML = SVG_SOUND_ON + '<span class="sound-text">Sound On &#8226; Click to Mute</span>';
+            }
+            if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+              try { ytPlayer.pauseVideo(); } catch(err){}
+            }
+          }
+        });
+      }
+    });
+
+    // Automatically ensure videos play muted on page load
+    function ensureAutoplayVideos() {
+      document.querySelectorAll('video').forEach(vid => {
+        if (vid.id !== 'modalVideoPlayer') {
+          vid.muted = true;
+          vid.play().catch(e => {
+            console.log('Autoplay muted catch:', e);
+          });
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', ensureAutoplayVideos);
+    } else {
+      ensureAutoplayVideos();
+    }
+    window.addEventListener('load', ensureAutoplayVideos);
+
+    // 13. Lightbox open/close functions for Gallery Assets
+    function openImageLightbox(src, caption) {
+      const modal = document.getElementById('imageLightboxModal');
+      const img = document.getElementById('lightboxModalImg');
+      const cap = document.getElementById('lightboxModalCaption');
+      if (modal && img) {
+        img.src = src;
+        if (cap && caption) cap.textContent = caption;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeImageLightbox(e) {
+      const modal = document.getElementById('imageLightboxModal');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const lightBox = document.getElementById('imageLightboxModal');
+        if (lightBox && lightBox.classList.contains('active')) {
+          closeImageLightbox();
+        }
+      }
+    });
+
+    // 14. Auto-pause background morning piano music when any video plays with sound
+    document.querySelectorAll('video').forEach(vid => {
+      vid.addEventListener('play', () => {
+        if (!vid.muted && vid.volume > 0) {
+          if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+            try { ytPlayer.pauseVideo(); } catch(e){}
+          }
+        }
+      });
+      vid.addEventListener('pause', () => {
+        const anySoundPlaying = Array.from(document.querySelectorAll('video')).some(v => !v.muted && v.volume > 0 && !v.paused && !v.ended);
+        if (!anySoundPlaying && isMusicPlaying && ytPlayer && typeof ytPlayer.playVideo === 'function') {
+          try { ytPlayer.playVideo(); } catch(e){}
+        }
+      });
+      vid.addEventListener('ended', () => {
+        const anySoundPlaying = Array.from(document.querySelectorAll('video')).some(v => !v.muted && v.volume > 0 && !v.paused && !v.ended);
+        if (!anySoundPlaying && isMusicPlaying && ytPlayer && typeof ytPlayer.playVideo === 'function') {
+          try { ytPlayer.playVideo(); } catch(e){}
+        }
+      });
+    });
+  </script>
+</body>
+</html>
