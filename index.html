@@ -2569,7 +2569,9 @@
       <li><a href="#tools">Tools</a></li>
       <li><a href="#companies">Experience</a></li>
       <li><a href="#ai-projects">Creative AI Projects</a></li>
+      <li><a href="#commercial-story">Commercial Story</a></li>
       <li><a href="#web-projects">Web Projects</a></li>
+      <li><a href="#short-reels">Short Reels</a></li>
       <li><a href="#interactive-hub">Collaboration</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -2954,11 +2956,14 @@
     <div class="ai-showcase-container reveal">
       <div class="ai-showcase-card">
         <div class="ai-showcase-grid">
-          <!-- Video Screen with Switcher Tabs and Sound Pill -->
+          <!-- Video Screen with Switcher Tabs and Sound Pill (Autoplay Muted by Default) -->
           <div class="ai-video-col">
             <div class="showcase-tabs-bar">
-              <button type="button" class="showcase-tab-btn active" onclick="switchShowcaseTab('journal', 'ai_journal_commercial.mp4', 'ai_journal_poster.jpg', '&#x1F3AC; 4K Commercial TV Ad Creative', this)">
-                &#x1F3AC; 4K Commercial TVC
+              <button type="button" class="showcase-tab-btn active" onclick="switchShowcaseTab('journal', 'ai_journal_short.mp4', 'reel_thumb_5.jpg', '&#x1F3AC; YouTube Short (-MgCCVMdXJw) &#8226; Autoplaying Muted', this)">
+                &#x1F3AC; YouTube Short (Auto)
+              </button>
+              <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('journal', 'ai_journal_commercial.mp4', 'ai_journal_poster.jpg', '&#x1F3AC; 4K Master Commercial TVC', this)">
+                &#x1F4FA; 4K Commercial TVC
               </button>
               <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('journal', 'ai_journal_cut2.mp4', 'ai_journal_poster.jpg', '&#x26A1; 6s Kinetic Teaser Reel', this)">
                 &#x26A1; 6s Teaser Cut
@@ -2969,21 +2974,21 @@
                 <svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
                 <span class="sound-text">Muted &#8226; Turn Sound On</span>
               </button>
-              <video id="journal-video" src="ai_journal_commercial.mp4" poster="ai_journal_poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+              <video id="journal-video" src="ai_journal_short.mp4" poster="reel_thumb_5.jpg" autoplay muted loop playsinline controls preload="auto"></video>
             </div>
             <div class="showcase-video-caption">
-              <span id="journal-caption">&#x1F3AC; 4K Commercial TV Ad Creative</span>
+              <span id="journal-caption">&#x1F3AC; YouTube Short (-MgCCVMdXJw) &#8226; Autoplaying Muted</span>
               <span class="pill">&#x1F4D6; Luxury Journal Ad</span>
             </div>
           </div>
 
-          <!-- Project Description, Gallery, and Tags -->
+          <!-- Project Description, Gallery, Tags, and Direct Watch Link -->
           <div class="ai-info-col">
             <div class="showcase-header-row">
               <div class="showcase-icon-avatar">&#x1F4D6;</div>
               <div class="showcase-title-wrap">
                 <h3>Luxury Journal Set</h3>
-                <span class="sub">Artisanal Stationery &#8226; 4K Commercial TV Ad</span>
+                <span class="sub">Artisanal Stationery &#8226; Commercial Video Ad</span>
               </div>
             </div>
             <p class="showcase-desc">
@@ -3000,6 +3005,10 @@
                   <img src="ai_journal_poster.jpg" alt="Luxury Journal Set Poster" loading="lazy">
                   <span class="gallery-thumb-badge">Poster</span>
                 </div>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('reel_thumb_5.jpg', 'Luxury Journal Set &#8226; YouTube Short Frame')" title="Click to view full size">
+                  <img src="reel_thumb_5.jpg" alt="YouTube Short Frame" loading="lazy">
+                  <span class="gallery-thumb-badge">Short Frame</span>
+                </div>
               </div>
             </div>
 
@@ -3010,6 +3019,12 @@
               <span class="showcase-tag">&#x1F4F8; Product Cinematography</span>
               <span class="showcase-tag">&#x1F4FA; 4K TV Ad</span>
             </div>
+
+            <!-- Direct YouTube Watch Link Button -->
+            <a href="https://youtube.com/shorts/-MgCCVMdXJw?si=mgq72TOK9RQ_BKqG" target="_blank" rel="noopener noreferrer" class="company-link-btn" style="margin-top: 8px; width: fit-content; padding: 6px 14px; font-size: 0.72rem;">
+              <span>Watch on YouTube Shorts</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -3095,6 +3110,12 @@
               <span class="showcase-tag">&#x1F9B7; Ergonomic Design</span>
               <span class="showcase-tag">&#x1F3AC; Commercial Pacing</span>
             </div>
+
+            <!-- Direct YouTube Watch Link Button -->
+            <a href="https://youtube.com/shorts/MP7M8k2Y9xc" target="_blank" rel="noopener noreferrer" class="company-link-btn" style="margin-top: 8px; width: fit-content; padding: 6px 14px; font-size: 0.72rem;">
+              <span>Watch H2O Form (YouTube Shorts)</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -3180,6 +3201,93 @@
               <span class="showcase-tag">&#x1F4A7; Macro Droplet Motion</span>
               <span class="showcase-tag">&#x1F4FA; Commercial TVC</span>
             </div>
+
+            <!-- Direct YouTube Watch Links -->
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;">
+              <a href="https://youtu.be/1S0EnniaAVQ" target="_blank" rel="noopener noreferrer" class="company-link-btn" style="padding: 6px 14px; font-size: 0.72rem;">
+                <span>Watch LYRA Beauty (YouTube)</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+              </a>
+              <a href="https://youtube.com/shorts/FNeXOWuuJ50" target="_blank" rel="noopener noreferrer" class="company-link-btn" style="padding: 6px 14px; font-size: 0.72rem;">
+                <span>Commercial Campaign (Shorts)</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Short Commercial Story: "She Deserves Something Personal" -->
+  <section id="commercial-story" class="ai-project-section">
+    <div class="section-header reveal">
+      <span class="section-badge">&#10022; Short Commercial Story</span>
+      <h2 class="section-title">"She Deserves Something Personal"</h2>
+      <p class="section-desc">Heartwarming Filipino High School Mini-Drama &#8226; A touching narrative on how passionate teachers make an indelible impact on their students.</p>
+    </div>
+
+    <div class="ai-showcase-container reveal">
+      <div class="ai-showcase-card">
+        <div class="ai-showcase-grid">
+          <!-- Video Screen / Short Frame Container -->
+          <div class="ai-video-col">
+            <div class="showcase-tabs-bar">
+              <button type="button" class="showcase-tab-btn active">
+                &#x1F3AC; Short Commercial Drama
+              </button>
+              <button type="button" class="showcase-tab-btn" onclick="openYouTubeShortModal('9k8MswLlgLo', 'She Deserves Something Personal', 'High School Mini-Drama')">
+                &#x1F50A; Watch with Full Sound
+              </button>
+            </div>
+            <div class="ai-video-box" style="height: 250px; background: #000; position: relative;">
+              <iframe id="story-frame" src="https://www.youtube-nocookie.com/embed/9k8MswLlgLo?rel=0&modestbranding=1" title="She Deserves Something Personal" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border: none; display: block;"></iframe>
+            </div>
+            <div class="showcase-video-caption">
+              <span>&#x1F3AC; Heartwarming Filipino High School Mini-Drama</span>
+              <span class="pill">&#x1F4D6; Commercial Narrative</span>
+            </div>
+          </div>
+
+          <!-- Description, Poster Gallery, and Links -->
+          <div class="ai-info-col">
+            <div class="showcase-header-row">
+              <div class="showcase-icon-avatar">&#x1F3AD;</div>
+              <div class="showcase-title-wrap">
+                <h3>"She Deserves Something Personal"</h3>
+                <span class="sub">Heartwarming Filipino High School Mini-Drama</span>
+              </div>
+            </div>
+            <p class="showcase-desc">
+              A moving cinematic mini-drama exploring teacher-student mentorship, genuine gratitude, and the emotional power of personalized gifts. Features nuanced character performance direction, authentic Filipino high school atmosphere, sensitive dramatic pacing, and seamless brand storytelling.
+            </p>
+
+            <div class="gallery-preview-wrap">
+              <div class="gallery-preview-label">
+                <span>Production Artwork (Click to Enlarge)</span>
+                <span>Drama Poster</span>
+              </div>
+              <div class="gallery-thumbs-grid">
+                <div class="gallery-thumb-item" onclick="openImageLightbox('story_she_deserves.jpg', 'She Deserves Something Personal &#8226; Filipino High School Mini-Drama Poster')" title="Click to view full size">
+                  <img src="story_she_deserves.jpg" alt="She Deserves Something Personal Poster" loading="lazy">
+                  <span class="gallery-thumb-badge">Poster</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-tags">
+              <span class="showcase-tag">&#x1F3AC; Mini-Drama</span>
+              <span class="showcase-tag">&#x2728; Heartwarming Story</span>
+              <span class="showcase-tag">&#x1F3EB; High School Setting</span>
+              <span class="showcase-tag">&#x1F3AD; Emotional Narrative</span>
+              <span class="showcase-tag">&#x1F4F1; Vertical Cinema</span>
+            </div>
+
+            <a href="https://youtube.com/shorts/9k8MswLlgLo?si=liAZKzzNXufwv5-k" target="_blank" rel="noopener noreferrer" class="company-link-btn" style="margin-top: 8px; width: fit-content; padding: 6px 14px; font-size: 0.72rem;">
+              <span>Watch on YouTube Shorts</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -3355,6 +3463,207 @@
       </div>
     </div>
   </section>
+
+  <!-- Short Reels Section (in a phone screen layout at the bottom of web projects) -->
+  <section id="short-reels" class="ai-project-section" style="padding-top: 20px;">
+    <div class="section-header reveal">
+      <span class="section-badge">&#10022; Mobile Vertical Motion &amp; Reels</span>
+      <h2 class="section-title">Short Reels &amp; Motion Edits</h2>
+      <p class="section-desc">Selected commercial shorts, brand reels, gift naming animations, and social-first visual edits in mobile format. Click any phone screen to watch with sound.</p>
+    </div>
+
+    <div class="short-animations-grid">
+      <!-- 1. She Deserves Something Personal -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('9k8MswLlgLo', 'She Deserves Something Personal', 'High School Mini-Drama')" title="Click to watch with sound">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="reel_thumb_1.jpg" alt="She Deserves It" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Drama</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">She Deserves It</div>
+          <div class="short-category">Mini-Drama</div>
+          <a href="https://youtube.com/shorts/9k8MswLlgLo?si=I2h7FG6Q4XD1Ve78" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. LYRA Beauty -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('1S0EnniaAVQ', 'LYRA Beauty', 'Cosmetic Brand Reel')" title="Click to watch with sound">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="reel_thumb_2.jpg" alt="LYRA Beauty" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Beauty</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">LYRA Beauty</div>
+          <div class="short-category">Brand Reel</div>
+          <a href="https://youtu.be/1S0EnniaAVQ" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. LYRA Beauty commercial AD campaign -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('FNeXOWuuJ50', 'LYRA Beauty AD Campaign', 'Commercial Campaign')" title="Click to watch with sound">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="reel_thumb_3.jpg" alt="LYRA Campaign" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Campaign</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">LYRA Ad</div>
+          <div class="short-category">Campaign</div>
+          <a href="https://youtube.com/shorts/FNeXOWuuJ50?feature=share" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. H2O FORM Commercial Concept -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('MP7M8k2Y9xc', 'H2O FORM Concept', 'Product Concept Reel')" title="Click to watch with sound">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="reel_thumb_4.jpg" alt="H2O FORM Concept" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>H2O Form</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">H2O Concept</div>
+          <div class="short-category">Product Reel</div>
+          <a href="https://youtube.com/shorts/MP7M8k2Y9xc" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5. LUXURY personalized journal set -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('-MgCCVMdXJw', 'Luxury Journal Set', 'Artisanal Stationery')" title="Click to watch with sound">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="reel_thumb_5.jpg" alt="Luxury Journal Set" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Journal</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">Luxury Journal</div>
+          <div class="short-category">Stationery</div>
+          <a href="https://youtube.com/shorts/-MgCCVMdXJw?si=Jf4Um9I8IY2vqx1C" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 6. GWPO gift naming -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('KKvEawEffuY', 'GWPO Gift Naming', 'Kinetic 3D Typography')" title="Click to watch with sound">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="reel_thumb_6.jpg" alt="GWPO Gift Naming" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Typography</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">GWPO GN</div>
+          <div class="short-category">Gift Naming</div>
+          <a href="https://youtube.com/shorts/KKvEawEffuY?si=w_1N4pBg_bZF_FTl" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 7. KAWAII GN -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('fIVMJ_rrnVM', 'KAWAII GN', '3D Gift Naming & Character Motion')" title="Click to watch with sound">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="reel_thumb_7.jpg" alt="KAWAII GN" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Character</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">KAWAII GN</div>
+          <div class="short-category">Gift Naming</div>
+          <a href="https://youtube.com/shorts/fIVMJ_rrnVM?si=xAcnmatYZYiHDqNj" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 8. KYLIE Gift Naming -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('uR5Mh79LqkE', 'KYLIE Gift Naming', 'Gift Naming Animation')" title="Click to watch with sound">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="reel_thumb_8.jpg" alt="KYLIE Gift Naming" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Animation</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">KYLIE GN</div>
+          <div class="short-category">Gift Naming</div>
+          <a href="https://youtube.com/shorts/uR5Mh79LqkE?si=fP4Yy574r8hwi6lg" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 9. LYRA Gift naming -->
+      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('92DuV87W4LU', 'LYRA Gift Naming', 'Kinetic Character FX')" title="Click to watch with sound">
+        <div class="short-phone-notch"></div>
+        <div class="short-phone-screen">
+          <img src="reel_thumb_9.jpg" alt="LYRA Gift Naming" class="short-phone-thumb" loading="lazy">
+          <div class="short-phone-overlay">
+            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
+            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
+            <div class="short-bottom-label"><span>Motion FX</span><span>&#x25B6; Play</span></div>
+          </div>
+        </div>
+        <div class="short-info-box">
+          <div class="short-title">LYRA GN</div>
+          <div class="short-category">Gift Naming</div>
+          <a href="https://youtube.com/shorts/92DuV87W4LU?si=b8ZFK0YWI_PYCNmT" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
+            <span>Watch</span>
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Interactive Collaboration Studio (Placed at Lower Part of Portfolio as requested) -->
   <section id="interactive-hub">
