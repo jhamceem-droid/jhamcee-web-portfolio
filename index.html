@@ -68,6 +68,12 @@
       position: relative;
     }
 
+    /* Clean preview mode for screenshot thumbnails */
+    body.clean-preview .host-strip,
+    body.clean-preview .audio-pill-widget {
+      display: none !important;
+    }
+
     /* 1. FIXED Website Background (Not Scrollable) */
     .site-background {
       position: fixed;
@@ -588,9 +594,8 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-      transform-style: preserve-3d;
-      will-change: transform;
+      transform: none !important;
+      transform-style: flat;
     }
 
     .hero-cutout-img {
@@ -1419,6 +1424,209 @@
       border-radius: 6px;
       font-size: 0.64rem;
       font-weight: 600;
+    }
+
+    /* 7b. Creative AI Projects & Commercial Motion Sections */
+    .ai-project-section {
+      padding: 55px 0 35px 0;
+      position: relative;
+    }
+
+    .ai-showcase-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .ai-showcase-card {
+      background: linear-gradient(155deg, rgba(22, 18, 14, 0.95) 0%, rgba(12, 10, 8, 0.98) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 20px rgba(212, 175, 55, 0.08);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .ai-showcase-card:hover {
+      border-color: rgba(245, 217, 122, 0.4);
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.9), 0 0 26px rgba(212, 175, 55, 0.16);
+    }
+
+    .ai-showcase-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .ai-video-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .ai-video-box {
+      width: 100%;
+      height: 240px;
+      background: #000;
+      border-radius: 14px;
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+    }
+
+    .ai-video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #000;
+      cursor: pointer;
+    }
+
+    .ai-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* 7c. Compact Consolidated Web Projects Grid (3 in 1 Section) */
+    .web-projects-section {
+      padding: 55px 0 35px 0;
+      position: relative;
+    }
+
+    .web-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 992px) {
+      .web-projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      }
+    }
+
+    .web-project-card {
+      background: linear-gradient(160deg, rgba(20, 16, 12, 0.95) 0%, rgba(11, 9, 7, 0.98) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.18);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.8), 0 0 14px rgba(212, 175, 55, 0.05);
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .web-project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245, 217, 122, 0.38);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.9), 0 0 22px rgba(212, 175, 55, 0.14);
+    }
+
+    .web-video-box {
+      width: 100%;
+      height: 175px;
+      background: #000;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
+    }
+
+    .web-video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #000;
+      cursor: pointer;
+    }
+
+    .web-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .web-card-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(35, 28, 20, 0.9);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .web-card-titles h3 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 2px;
+    }
+
+    .web-card-titles span.sub {
+      font-size: 0.65rem;
+      color: #9e9384;
+      display: block;
+    }
+
+    .web-card-desc {
+      font-size: 0.72rem;
+      line-height: 1.5;
+      color: #c5bba8;
+      flex-grow: 1;
+    }
+
+    .web-mini-thumbs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+
+    .web-mini-thumb {
+      height: 48px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      cursor: pointer;
+      position: relative;
+      background: #0a0806;
+    }
+
+    .web-mini-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.25s ease;
+    }
+
+    .web-mini-thumb:hover img {
+      transform: scale(1.08);
+    }
+
+    @media (max-width: 768px) {
+      .ai-showcase-grid {
+        grid-template-columns: 1fr;
+      }
+      .ai-video-box {
+        height: 200px;
+      }
+      .web-video-box {
+        height: 180px;
+      }
     }
 
     /* 8. Short Animations - Miniature Phone Screen Grid (1.5 inch height / ~144px) */
@@ -2360,10 +2568,8 @@
       <li><a href="#why-hire">Why Hire Me</a></li>
       <li><a href="#tools">Tools</a></li>
       <li><a href="#companies">Experience</a></li>
-      <li><a href="#silken-flora">Silken Flora</a></li>
-      <li><a href="#the-informata">The Informata</a></li>
-      <li><a href="#the-matcha-society">Matcha Society</a></li>
-      <li><a href="#short-animations">Short Animations</a></li>
+      <li><a href="#ai-projects">Creative AI Projects</a></li>
+      <li><a href="#web-projects">Web Projects</a></li>
       <li><a href="#interactive-hub">Collaboration</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -2392,11 +2598,6 @@
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
             Resume
           </a>
-          <!-- Video Introduction CTA Button -->
-          <button type="button" class="btn-video-intro" id="openVideoIntroBtn">
-            <span class="play-dot"></span>
-            Video Introduction
-          </button>
           <!-- Download ZIP Portfolio Button -->
           <a href="/portfolio-jhamcee-miran.zip" download="portfolio-jhamcee-miran.zip" class="btn-resume" style="border-color: rgba(212, 175, 55, 0.45); background: rgba(24, 20, 16, 0.85); text-decoration: none;">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -2418,10 +2619,10 @@
   <!-- Scrolling Marquee Ribbon -->
   <div class="marquee-bar">
     <div class="marquee-track">
-      <span class="marquee-item"><span class="highlight">Visual Artist</span> <span class="sep">✦</span> Video Editor <span class="sep">✦</span> <span class="highlight">Customer Support</span> <span class="sep">✦</span> Transcriptionist</span>
-      <span class="marquee-item"><span class="highlight">Visual Artist</span> <span class="sep">✦</span> Video Editor <span class="sep">✦</span> <span class="highlight">Customer Support</span> <span class="sep">✦</span> Transcriptionist</span>
-      <span class="marquee-item"><span class="highlight">Visual Artist</span> <span class="sep">✦</span> Video Editor <span class="sep">✦</span> <span class="highlight">Customer Support</span> <span class="sep">✦</span> Transcriptionist</span>
-      <span class="marquee-item"><span class="highlight">Visual Artist</span> <span class="sep">✦</span> Video Editor <span class="sep">✦</span> <span class="highlight">Customer Support</span> <span class="sep">✦</span> Transcriptionist</span>
+      <span class="marquee-item"><span class="highlight">MULTIMEDIA EDITOR</span> <span class="sep">✦</span> <span class="highlight">AI CREATIVE VIDEO EDITOR</span> <span class="sep">✦</span> Visual Artist <span class="sep">✦</span> Video Editor <span class="sep">✦</span> <span class="highlight">Customer Support</span> <span class="sep">✦</span> Transcriptionist</span>
+      <span class="marquee-item"><span class="highlight">MULTIMEDIA EDITOR</span> <span class="sep">✦</span> <span class="highlight">AI CREATIVE VIDEO EDITOR</span> <span class="sep">✦</span> Visual Artist <span class="sep">✦</span> Video Editor <span class="sep">✦</span> <span class="highlight">Customer Support</span> <span class="sep">✦</span> Transcriptionist</span>
+      <span class="marquee-item"><span class="highlight">MULTIMEDIA EDITOR</span> <span class="sep">✦</span> <span class="highlight">AI CREATIVE VIDEO EDITOR</span> <span class="sep">✦</span> Visual Artist <span class="sep">✦</span> Video Editor <span class="sep">✦</span> <span class="highlight">Customer Support</span> <span class="sep">✦</span> Transcriptionist</span>
+      <span class="marquee-item"><span class="highlight">MULTIMEDIA EDITOR</span> <span class="sep">✦</span> <span class="highlight">AI CREATIVE VIDEO EDITOR</span> <span class="sep">✦</span> Visual Artist <span class="sep">✦</span> Video Editor <span class="sep">✦</span> <span class="highlight">Customer Support</span> <span class="sep">✦</span> Transcriptionist</span>
     </div>
   </div>
 
@@ -2501,6 +2702,14 @@
         </p>
       </div>
 
+      <div class="glass-card why-hire-card reveal">
+        <div class="card-icon">🎬</div>
+        <h4>Creative AI Video Editor</h4>
+        <p class="small-detail">
+          Prompt-to-video direction, cinematic camera dynamics, commercial motion pacing, and generative AI video workflows for luxury brand advertisements. (Scroll down for the sample projects)
+        </p>
+      </div>
+
       <div class="closing-hire-note reveal">
         <p>
           I'm <strong>adaptable</strong>, <strong>detail-oriented</strong>, a <strong>quick learner</strong>, and comfortable working <strong>independently or with a team</strong>. I'm excited about the opportunity to bring my experience and skills to your company. Thank you for your time, and I hope to have the opportunity to work with you.
@@ -2525,6 +2734,19 @@
           <h4>Core Tools</h4>
         </div>
         <div class="tool-chips-wrap">
+          <div class="tool-chip" style="border-color: rgba(255, 232, 158, 0.45);">
+            <svg viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="#d4af37" stroke-width="2"/>
+              <path d="M8 12h8M12 8v8" stroke="#ffe89e" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Higgsfield
+          </div>
+          <div class="tool-chip" style="border-color: rgba(66, 133, 244, 0.45);">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm4.5-5.5a5.5 5.5 0 0 1-5.5 5.5v-2a3.5 3.5 0 0 0 3.5-3.5h2z" fill="#4285F4"/>
+            </svg>
+            Google Flow
+          </div>
           <div class="tool-chip" style="border-color: rgba(255, 232, 158, 0.45);">
             <svg viewBox="0 0 24 24" fill="none">
               <path d="M4 6.5L12 11.5L20 6.5" stroke="#ffe89e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -2717,84 +2939,76 @@
     </div>
   </section>
 
-  <!-- Project 1: Silken Flora (Dedicated Showcase Section) -->
-  <section id="silken-flora">
+  <!-- ========================================== -->
+  <!-- CREATIVE AI PROJECTS & COMMERCIAL MOTION ADS -->
+  <!-- ========================================== -->
+
+  <!-- Creative AI Project 01: LUXURY JOURNAL SET -->
+  <section id="ai-projects" class="ai-project-section">
     <div class="section-header reveal">
-      <span class="section-badge">&#10022; Project Showcase 01</span>
-      <h2 class="section-title">Silken Flora</h2>
-      <p class="section-desc">Boutique E-Commerce &amp; Floral Brand Identity (Solano, Nueva Vizcaya) &#8226; Everlasting handcrafted blooms, custom bouquet studio UX, and commercial creative.</p>
+      <span class="section-badge">&#10022; Creative AI Video &amp; Commercial Ads</span>
+      <h2 class="section-title">Luxury Journal Set</h2>
+      <p class="section-desc">Artisanal Leather Stationery &amp; Executive Gift Set &#8226; Prompt-to-video diffusion, cinematic macro gold foil embossing, and commercial television pacing.</p>
     </div>
 
-    <div class="project-showcase-container reveal">
-      <div class="project-showcase-card">
-        <div class="project-showcase-grid">
-          <!-- Left: Compact Video Player with Video Switcher Tabs -->
-          <div class="showcase-video-col">
+    <div class="ai-showcase-container reveal">
+      <div class="ai-showcase-card">
+        <div class="ai-showcase-grid">
+          <!-- Video Screen with Switcher Tabs and Sound Pill -->
+          <div class="ai-video-col">
             <div class="showcase-tabs-bar">
-              <button type="button" class="showcase-tab-btn active" onclick="switchShowcaseTab('silken', 'silken_commercial.mp4', 'project_silken_flora.png', '&#x1F3AC; 60s 4K Commercial Creative', this)">
-                &#x1F3AC; 60s Commercial
+              <button type="button" class="showcase-tab-btn active" onclick="switchShowcaseTab('journal', 'ai_journal_commercial.mp4', 'ai_journal_poster.jpg', '&#x1F3AC; 4K Commercial TV Ad Creative', this)">
+                &#x1F3AC; 4K Commercial TVC
               </button>
-              <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('silken', 'silken_site_walkthrough.mp4', 'silken_bloom_elegance.png', '&#x1F4BB; Storefront &amp; Custom Studio Walkthrough', this)">
-                &#x1F4BB; Site Walkthrough
+              <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('journal', 'ai_journal_cut2.mp4', 'ai_journal_poster.jpg', '&#x26A1; 6s Kinetic Teaser Reel', this)">
+                &#x26A1; 6s Teaser Cut
               </button>
             </div>
-            <div class="showcase-video-box">
-              <button type="button" class="video-sound-pill" id="silken-sound-pill" onclick="toggleVideoSound('silken', this)" title="Click to Turn Sound On">
+            <div class="ai-video-box">
+              <button type="button" class="video-sound-pill" id="journal-sound-pill" onclick="toggleVideoSound('journal', this)" title="Click to Turn Sound On">
                 <svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
                 <span class="sound-text">Muted &#8226; Turn Sound On</span>
               </button>
-              <video id="silken-video" src="silken_commercial.mp4" poster="project_silken_flora.png" autoplay muted loop playsinline controls preload="auto"></video>
+              <video id="journal-video" src="ai_journal_commercial.mp4" poster="ai_journal_poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
             </div>
             <div class="showcase-video-caption">
-              <span id="silken-caption">&#x1F3AC; 60s 4K Commercial Creative</span>
-              <span class="pill">&#x1F338; Silken Flora Media</span>
+              <span id="journal-caption">&#x1F3AC; 4K Commercial TV Ad Creative</span>
+              <span class="pill">&#x1F4D6; Luxury Journal Ad</span>
             </div>
           </div>
 
-          <!-- Right: Details, Thumbnail Gallery, and Chips -->
-          <div class="showcase-info-col">
+          <!-- Project Description, Gallery, and Tags -->
+          <div class="ai-info-col">
             <div class="showcase-header-row">
-              <div class="showcase-icon-avatar">&#x1F338;</div>
+              <div class="showcase-icon-avatar">&#x1F4D6;</div>
               <div class="showcase-title-wrap">
-                <h3>Silken Flora Boutique</h3>
-                <span class="sub">E-Commerce &#8226; Floral Brand Identity</span>
+                <h3>Luxury Journal Set</h3>
+                <span class="sub">Artisanal Stationery &#8226; 4K Commercial TV Ad</span>
               </div>
             </div>
             <p class="showcase-desc">
-              Bespoke digital brand identity and storefront mock project for a handcrafted fuzzy-wire and satin ribbon floral boutique in Solano, Nueva Vizcaya. Includes custom bouquet studio UX, catalog curation, and 4K commercial pacing.
+              Artisanal commercial motion design and AI-directed product cinematography for an executive handcrafted leather journal gift set. Features rich macro gold foil embossing, photorealistic leather textures, smooth rotational camera orbits, and commercial television pacing.
             </p>
 
             <div class="gallery-preview-wrap">
               <div class="gallery-preview-label">
-                <span>Project Gallery (Click to Enlarge)</span>
-                <span>5 Assets</span>
+                <span>Production Assets (Click to Enlarge)</span>
+                <span>Commercial Artwork</span>
               </div>
               <div class="gallery-thumbs-grid">
-                <div class="gallery-thumb-item" onclick="openImageLightbox('project_silken_flora.png', 'Silken Flora &#8226; Handcrafted Forever Blooms Hero Poster')" title="Click to view full size">
-                  <img src="project_silken_flora.png" alt="Silken Flora Hero" loading="lazy">
+                <div class="gallery-thumb-item" onclick="openImageLightbox('ai_journal_poster.jpg', 'Luxury Journal Set &#8226; Executive Gold Foil Stationery Poster')" title="Click to view full size">
+                  <img src="ai_journal_poster.jpg" alt="Luxury Journal Set Poster" loading="lazy">
                   <span class="gallery-thumb-badge">Poster</span>
                 </div>
-                <div class="gallery-thumb-item" onclick="openImageLightbox('silken_bloom_elegance.png', 'Silken Flora &#8226; Lasting Bloom Elegance Editorial Poster')" title="Click to view full size">
-                  <img src="silken_bloom_elegance.png" alt="Silken Bloom Elegance" loading="lazy">
-                  <span class="gallery-thumb-badge">Editorial</span>
-                </div>
-                <div class="gallery-thumb-item" onclick="openImageLightbox('silken_bridal.jpg', 'Silken Flora &#8226; Cascading Bridal Bouquet')" title="Click to view full size">
-                  <img src="silken_bridal.jpg" alt="Silken Bridal Bouquet" loading="lazy">
-                  <span class="gallery-thumb-badge">Bridal</span>
-                </div>
-                <div class="gallery-thumb-item" onclick="openImageLightbox('silken_bloom_box.jpg', 'Silken Flora &#8226; Potted Everlasting Bloom Box')" title="Click to view full size">
-                  <img src="silken_bloom_box.jpg" alt="Silken Bloom Box" loading="lazy">
-                  <span class="gallery-thumb-badge">Bloom Box</span>
-                </div>
               </div>
             </div>
 
             <div class="showcase-tags">
-              <span class="showcase-tag">&#x1F338; Brand Identity</span>
-              <span class="showcase-tag">&#x1F4BB; Web &amp; UI Design</span>
-              <span class="showcase-tag">&#x1F3AC; 60s Commercial</span>
-              <span class="showcase-tag">&#x1F6CD;&#xFE0F; Bouquet Studio</span>
-              <span class="showcase-tag">&#x1F490; Everlasting Blooms</span>
+              <span class="showcase-tag">&#x2728; Higgsfield AI</span>
+              <span class="showcase-tag">&#x1F3AC; Commercial Motion</span>
+              <span class="showcase-tag">&#x1F4D6; Gold Foil CGI</span>
+              <span class="showcase-tag">&#x1F4F8; Product Cinematography</span>
+              <span class="showcase-tag">&#x1F4FA; 4K TV Ad</span>
             </div>
           </div>
         </div>
@@ -2802,87 +3016,84 @@
     </div>
   </section>
 
-  <!-- Project 2: The Informata (Dedicated Showcase Section) -->
-  <section id="the-informata">
+  <!-- Creative AI Project 02: H2O FORM -->
+  <section id="h2o-form" class="ai-project-section">
     <div class="section-header reveal">
-      <span class="section-badge">&#10022; Project Showcase 02</span>
-      <h2 class="section-title">The Informata</h2>
-      <p class="section-desc">Student Publication &amp; Digital Broadcast Media (Aldersgate College) &#8226; Eyewitness to Evolving Stories: editorial board branding, news portal design, and broadcast motion.</p>
+      <span class="section-badge">&#10022; Creative AI Video &amp; Commercial Ads</span>
+      <h2 class="section-title">H2O Form</h2>
+      <p class="section-desc">Futuristic Ergonomic Hydration System &#8226; Fluid splash physics, dynamic water vortex motion, prompt-to-video diffusion, and AI commercial storyboards.</p>
     </div>
 
-    <div class="project-showcase-container reveal">
-      <div class="project-showcase-card">
-        <div class="project-showcase-grid">
-          <!-- Left: Compact Video Player with Video Switcher Tabs -->
-          <div class="showcase-video-col">
+    <div class="ai-showcase-container reveal">
+      <div class="ai-showcase-card">
+        <div class="ai-showcase-grid">
+          <!-- Video Screen with Switcher Tabs and Sound Pill -->
+          <div class="ai-video-col">
             <div class="showcase-tabs-bar">
-              <button type="button" class="showcase-tab-btn active" onclick="switchShowcaseTab('informata', 'informata_intro.mp4', 'project_informata_banner.jpg', '&#x1F3AC; News Broadcasting Intro', this)">
-                &#x1F3AC; Broadcast Intro
+              <button type="button" class="showcase-tab-btn active" onclick="switchShowcaseTab('h2o', 'ai_h2o_commercial.mp4', 'ai_h2o_poster.jpg', '&#x1F4A7; Fluid Dynamics Commercial TV Ad', this)">
+                &#x1F4A7; Commercial TVC
               </button>
-              <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('informata', 'informata_showcase.mp4', 'project_informata_logo.jpg', '&#x1F4FA; Full Publication Showcase', this)">
-                &#x1F4FA; Showcase
-              </button>
-              <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('informata', 'informata_commercial.mp4', 'informata_card1.jpg', '&#x1F3A5; Broadcast Commercial Reel', this)">
-                &#x1F3A5; Broadcast Reel
+              <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('h2o', 'ai_h2o_storyboard.mp4', 'ai_h2o_still1.jpg', '&#x1F3AC; AI Storyboard &amp; Motion Progression', this)">
+                &#x1F3AC; Storyboard Reel
               </button>
             </div>
-            <div class="showcase-video-box">
-              <button type="button" class="video-sound-pill" id="informata-sound-pill" onclick="toggleVideoSound('informata', this)" title="Click to Turn Sound On">
+            <div class="ai-video-box">
+              <button type="button" class="video-sound-pill" id="h2o-sound-pill" onclick="toggleVideoSound('h2o', this)" title="Click to Turn Sound On">
                 <svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
                 <span class="sound-text">Muted &#8226; Turn Sound On</span>
               </button>
-              <video id="informata-video" src="informata_intro.mp4" poster="project_informata_banner.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+              <video id="h2o-video" src="ai_h2o_commercial.mp4" poster="ai_h2o_poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
             </div>
             <div class="showcase-video-caption">
-              <span id="informata-caption">&#x1F3AC; News Broadcasting Intro</span>
-              <span class="pill">&#x1F4F0; The Informata Media</span>
+              <span id="h2o-caption">&#x1F4A7; Fluid Dynamics Commercial TV Ad</span>
+              <span class="pill">&#x1F4A7; H2O Form Media</span>
             </div>
           </div>
 
-          <!-- Right: Details, Thumbnail Gallery, and Chips -->
-          <div class="showcase-info-col">
+          <!-- Project Description, Gallery, and Tags -->
+          <div class="ai-info-col">
             <div class="showcase-header-row">
-              <div class="showcase-icon-avatar">&#x2712;&#xFE0F;</div>
+              <div class="showcase-icon-avatar">&#x1F4A7;</div>
               <div class="showcase-title-wrap">
-                <h3>The Informata Publication</h3>
-                <span class="sub">Aldersgate College &#8226; Broadcast Media</span>
+                <h3>H2O Form Hydration</h3>
+                <span class="sub">Futuristic Ergonomic Design &#8226; CGI &amp; AI Motion</span>
               </div>
             </div>
             <p class="showcase-desc">
-              Official editorial publication and multimedia broadcast identity for Aldersgate College (<em>"Eyewitness to Evolving Stories"</em>). Directed editorial board graphics, digital publication layouts, broadcast intro motion graphics, and news portal styling.
+              High-concept AI commercial creative exploring fluid splash physics, dynamic water vortex motion, and modern ergonomic bottle design. Crafted with prompt-to-video diffusion models, cinematic grading, and hyper-realistic product lighting.
             </p>
 
             <div class="gallery-preview-wrap">
               <div class="gallery-preview-label">
-                <span>Editorial Gallery (Click to Enlarge)</span>
-                <span>6 Assets</span>
+                <span>Production Gallery (Click to Enlarge)</span>
+                <span>4 Render Stills</span>
               </div>
               <div class="gallery-thumbs-grid">
-                <div class="gallery-thumb-item" onclick="openImageLightbox('project_informata_banner.jpg', 'The Informata &#8226; Editorial Board Official Banner AY 2025-2026')" title="Click to view full size">
-                  <img src="project_informata_banner.jpg" alt="The Informata Banner" loading="lazy">
-                  <span class="gallery-thumb-badge">Banner</span>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('ai_h2o_poster.jpg', 'H2O Form &#8226; Fluid Vortex Splash Poster')" title="Click to view full size">
+                  <img src="ai_h2o_poster.jpg" alt="H2O Form Poster" loading="lazy">
+                  <span class="gallery-thumb-badge">Poster</span>
                 </div>
-                <div class="gallery-thumb-item" onclick="openImageLightbox('project_informata_logo.jpg', 'The Informata &#8226; 3D Gold &amp; Black Emblem Seal')" title="Click to view full size">
-                  <img src="project_informata_logo.jpg" alt="Informata Seal" loading="lazy">
-                  <span class="gallery-thumb-badge">3D Seal</span>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('ai_h2o_still1.jpg', 'H2O Form &#8226; Ergonomic Grip &amp; Liquid Dynamics')" title="Click to view full size">
+                  <img src="ai_h2o_still1.jpg" alt="H2O Form Still 1" loading="lazy">
+                  <span class="gallery-thumb-badge">Still 01</span>
                 </div>
-                <div class="gallery-thumb-item" onclick="openImageLightbox('informata_card1.jpg', 'The Informata &#8226; Staff Editorial Profile Card 1')" title="Click to view full size">
-                  <img src="informata_card1.jpg" alt="Editorial Staff Card 1" loading="lazy">
-                  <span class="gallery-thumb-badge">Staff 01</span>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('ai_h2o_still2.jpg', 'H2O Form &#8226; Macro Droplet Cinematography')" title="Click to view full size">
+                  <img src="ai_h2o_still2.jpg" alt="H2O Form Still 2" loading="lazy">
+                  <span class="gallery-thumb-badge">Still 02</span>
                 </div>
-                <div class="gallery-thumb-item" onclick="openImageLightbox('informata_card2.jpg', 'The Informata &#8226; Staff Editorial Profile Card 2')" title="Click to view full size">
-                  <img src="informata_card2.jpg" alt="Editorial Staff Card 2" loading="lazy">
-                  <span class="gallery-thumb-badge">Staff 02</span>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('ai_h2o_still3.jpg', 'H2O Form &#8226; Futuristic Studio Lighting')" title="Click to view full size">
+                  <img src="ai_h2o_still3.jpg" alt="H2O Form Still 3" loading="lazy">
+                  <span class="gallery-thumb-badge">Still 03</span>
                 </div>
               </div>
             </div>
 
             <div class="showcase-tags">
-              <span class="showcase-tag">&#x1F4F0; Editorial Design</span>
-              <span class="showcase-tag">&#x1F3A5; Broadcast Motion</span>
-              <span class="showcase-tag">&#x1F3A8; Brand Guidelines</span>
-              <span class="showcase-tag">&#x270D;&#xFE0F; Journalism</span>
-              <span class="showcase-tag">&#x1F4F1; News Portal</span>
+              <span class="showcase-tag">&#x1F4A7; Fluid Dynamics</span>
+              <span class="showcase-tag">&#x2728; Prompt-to-Video</span>
+              <span class="showcase-tag">&#x1F4DD; Storyboard Pipeline</span>
+              <span class="showcase-tag">&#x1F9B7; Ergonomic Design</span>
+              <span class="showcase-tag">&#x1F3AC; Commercial Pacing</span>
             </div>
           </div>
         </div>
@@ -2890,90 +3101,84 @@
     </div>
   </section>
 
-  <!-- Project 3: The Matcha Society (Dedicated Showcase Section) -->
-  <section id="the-matcha-society">
+  <!-- Creative AI Project 03: LYRA BEAUTY -->
+  <section id="lyra-beauty" class="ai-project-section">
     <div class="section-header reveal">
-      <span class="section-badge">&#10022; Project Showcase 03</span>
-      <h2 class="section-title">The Matcha Society</h2>
-      <p class="section-desc">Artisanal Beverage Branding, Commercial Creative &amp; Storefront UI &#8226; Japanese minimalist aesthetic, 30s TV ad with kinetic typography, and bottled lineup packaging.</p>
+      <span class="section-badge">&#10022; Creative AI Video &amp; Commercial Ads</span>
+      <h2 class="section-title">Lyra Beauty</h2>
+      <p class="section-desc">High-End Luminous Skincare &amp; Cosmetics &#8226; Celestial glow aesthetics, fluid serum droplet motion, and opulent golden shimmer commercial creative.</p>
     </div>
 
-    <div class="project-showcase-container reveal">
-      <div class="project-showcase-card">
-        <div class="project-showcase-grid">
-          <!-- Left: Compact Video Player -->
-          <div class="showcase-video-col">
+    <div class="ai-showcase-container reveal">
+      <div class="ai-showcase-card">
+        <div class="ai-showcase-grid">
+          <!-- Video Screen with Switcher Tabs and Sound Pill -->
+          <div class="ai-video-col">
             <div class="showcase-tabs-bar">
-              <button type="button" class="showcase-tab-btn active">
-                &#x1F3AC; 30s TV Commercial Ad
+              <button type="button" class="showcase-tab-btn active" onclick="switchShowcaseTab('lyra', 'ai_lyra_commercial.mp4', 'ai_lyra_poster.jpg', '&#x2728; Luxury Beauty Commercial Campaign', this)">
+                &#x2728; Commercial Campaign
+              </button>
+              <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('lyra', 'ai_lyra_inspiration.mp4', 'ai_lyra_still1.jpg', '&#x1F4A1; Style &amp; Mood Inspiration Reel', this)">
+                &#x1F4A1; Inspiration Reel
               </button>
             </div>
-            <div class="showcase-video-box">
-              <button type="button" class="video-sound-pill" id="matcha-sound-pill" onclick="toggleVideoSound('matcha', this)" title="Click to Turn Sound On">
+            <div class="ai-video-box">
+              <button type="button" class="video-sound-pill" id="lyra-sound-pill" onclick="toggleVideoSound('lyra', this)" title="Click to Turn Sound On">
                 <svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
                 <span class="sound-text">Muted &#8226; Turn Sound On</span>
               </button>
-              <video id="matcha-video" src="matcha_commercial.mp4" poster="matcha_poster1.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+              <video id="lyra-video" src="ai_lyra_commercial.mp4" poster="ai_lyra_poster.jpg" autoplay muted loop playsinline controls preload="auto"></video>
             </div>
             <div class="showcase-video-caption">
-              <span id="matcha-caption">&#x1F3AC; 30s TV Commercial Ad &#8226; Kinetic Typography</span>
-              <span class="pill">&#x1F375; The Matcha Society</span>
+              <span id="lyra-caption">&#x2728; Luxury Beauty Commercial Campaign</span>
+              <span class="pill">&#x2728; Lyra Beauty Media</span>
             </div>
           </div>
 
-          <!-- Right: Details, Thumbnail Gallery, and Chips -->
-          <div class="showcase-info-col">
+          <!-- Project Description, Gallery, and Tags -->
+          <div class="ai-info-col">
             <div class="showcase-header-row">
-              <div class="showcase-icon-avatar">&#x1F375;</div>
+              <div class="showcase-icon-avatar">&#x2728;</div>
               <div class="showcase-title-wrap">
-                <h3>The Matcha Society</h3>
-                <span class="sub">Artisanal Beverage Branding &#8226; Storefront UI</span>
+                <h3>Lyra Beauty Cosmetics</h3>
+                <span class="sub">Luminous Skincare &#8226; Commercial Campaign</span>
               </div>
             </div>
             <p class="showcase-desc">
-              Comprehensive branding and digital storefront mock project for an artisanal ceremonial matcha and craft coffee house. Features Japanese minimalist aesthetics, a 30-second commercial TV ad with kinetic typography and ASMR sound design, product packaging lineup, macro liquid splash cinematography, and desktop/mobile e-commerce experience.
+              Luxury beauty commercial ad featuring celestial glow aesthetics, fluid serum droplet motion, and opulent golden shimmer. Engineered through state-of-the-art AI video generation, precise camera direction, and luxury cosmetic color science.
             </p>
 
             <div class="gallery-preview-wrap">
               <div class="gallery-preview-label">
-                <span>Beverage &amp; UI Gallery (Click to Enlarge)</span>
-                <span>6 Assets</span>
+                <span>Production Gallery (Click to Enlarge)</span>
+                <span>4 Stills</span>
               </div>
               <div class="gallery-thumbs-grid">
-                <div class="gallery-thumb-item" onclick="openImageLightbox('matcha_poster1.jpg', 'The Matcha Society &#8226; Signature Artisanal Ceremonial Matcha Poster')" title="Click to view full size">
-                  <img src="matcha_poster1.jpg" alt="Matcha Signature Poster" loading="lazy">
-                  <span class="gallery-thumb-badge">Signature</span>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('ai_lyra_poster.jpg', 'Lyra Beauty &#8226; Celestial Shimmer Campaign Poster')" title="Click to view full size">
+                  <img src="ai_lyra_poster.jpg" alt="Lyra Beauty Poster" loading="lazy">
+                  <span class="gallery-thumb-badge">Poster</span>
                 </div>
-                <div class="gallery-thumb-item" onclick="openImageLightbox('matcha_poster2.jpg', 'The Matcha Society &#8226; Craft Cold Brew &amp; Hojicha Reserve')" title="Click to view full size">
-                  <img src="matcha_poster2.jpg" alt="Matcha Hojicha Poster" loading="lazy">
-                  <span class="gallery-thumb-badge">Hojicha</span>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('ai_lyra_still1.jpg', 'Lyra Beauty &#8226; Golden Serum Droplet Macro')" title="Click to view full size">
+                  <img src="ai_lyra_still1.jpg" alt="Lyra Beauty Still 1" loading="lazy">
+                  <span class="gallery-thumb-badge">Still 01</span>
                 </div>
-                <div class="gallery-thumb-item" onclick="openImageLightbox('matcha_poster3.png', 'The Matcha Society &#8226; Bottled Lineup &amp; Glass Bottle Packaging')" title="Click to view full size">
-                  <img src="matcha_poster3.png" alt="Matcha Packaging Lineup" loading="lazy">
-                  <span class="gallery-thumb-badge">Lineup</span>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('ai_lyra_still2.png', 'Lyra Beauty &#8226; Luxury Cosmetic Formulation')" title="Click to view full size">
+                  <img src="ai_lyra_still2.png" alt="Lyra Beauty Still 2" loading="lazy">
+                  <span class="gallery-thumb-badge">Still 02</span>
                 </div>
-                <div class="gallery-thumb-item" onclick="openImageLightbox('matcha_macro1.jpg', 'The Matcha Society &#8226; Ceremonial Grade Matcha Powder Macro Explosion')" title="Click to view full size">
-                  <img src="matcha_macro1.jpg" alt="Matcha Macro Powder" loading="lazy">
-                  <span class="gallery-thumb-badge">Macro 01</span>
-                </div>
-                <div class="gallery-thumb-item" onclick="openImageLightbox('matcha_macro2.jpg', 'The Matcha Society &#8226; Strawberry Ube Matcha Latte Cinematography')" title="Click to view full size">
-                  <img src="matcha_macro2.jpg" alt="Matcha Splash Cinematography" loading="lazy">
-                  <span class="gallery-thumb-badge">Macro 02</span>
-                </div>
-                <div class="gallery-thumb-item" onclick="openImageLightbox('matcha_full_site.png', 'The Matcha Society &#8226; Responsive Storefront &amp; Digital Menu UI Design')" title="Click to view full size">
-                  <img src="matcha_full_site.png" alt="Matcha Storefront UI" loading="lazy">
-                  <span class="gallery-thumb-badge">Storefront UI</span>
+                <div class="gallery-thumb-item" onclick="openImageLightbox('ai_lyra_still3.png', 'Lyra Beauty &#8226; Radiant Skin Studio Editorial')" title="Click to view full size">
+                  <img src="ai_lyra_still3.png" alt="Lyra Beauty Still 3" loading="lazy">
+                  <span class="gallery-thumb-badge">Still 03</span>
                 </div>
               </div>
             </div>
 
             <div class="showcase-tags">
-              <span class="showcase-tag">&#x1F375; Brand Identity</span>
-              <span class="showcase-tag">&#x1F3AC; 30s TV Ad</span>
-              <span class="showcase-tag">&#x2615; Packaging Design</span>
-              <span class="showcase-tag">&#x1F4BB; Storefront UI</span>
-              <span class="showcase-tag">&#x1F4F8; Macro Motion</span>
-              <span class="showcase-tag">&#x1F1EF;&#x1F1F5; Minimalist</span>
+              <span class="showcase-tag">&#x2728; Skincare Commercial</span>
+              <span class="showcase-tag">&#x1F916; Google Flow &amp; Higgsfield</span>
+              <span class="showcase-tag">&#x1F3A8; Cosmetic Grading</span>
+              <span class="showcase-tag">&#x1F4A7; Macro Droplet Motion</span>
+              <span class="showcase-tag">&#x1F4FA; Commercial TVC</span>
             </div>
           </div>
         </div>
@@ -2981,201 +3186,171 @@
     </div>
   </section>
 
-  <!-- Short Animations Section (Miniature 1.5-inch Phone Screen Design) -->
-  <section id="short-animations">
+
+  <!-- ========================================== -->
+  <!-- CONSOLIDATED WEB PROJECTS (1 SECTION, 3 SHOWCASES) -->
+  <!-- ========================================== -->
+  <section id="web-projects" class="web-projects-section">
     <div class="section-header reveal">
-      <span class="section-badge">&#10022; Short-Form Visuals</span>
-      <h2 class="section-title">Short Animations</h2>
-      <p class="section-desc">Selected kinetic short animations, 3D character gift namings, and high-impact motion graphics. Click any phone to play with sound.</p>
+      <span class="section-badge">&#10022; Digital Storefronts &amp; Publications</span>
+      <h2 class="section-title">Web &amp; Digital Projects</h2>
+      <p class="section-desc">Interactive e-commerce storefronts, student editorial publications, and artisanal branding consolidated into a compact showcase.</p>
     </div>
 
-    <div class="short-animations-grid">
-      <!-- 1. KAWAII GN -->
-      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('fIVMJ_rrnVM', 'KAWAII GN', '3D Gift Naming & Character Motion')">
-        <div class="short-phone-notch"></div>
-        <div class="short-phone-screen">
-          <img src="yt_short1.jpg" alt="KAWAII GN" class="short-phone-thumb" loading="lazy">
-          <div class="short-phone-overlay">
-            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
-            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
-            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+    <div class="web-projects-grid reveal">
+      <!-- Showcase 01: Silken Flora -->
+      <div class="web-project-card">
+        <div class="showcase-tabs-bar" style="margin-bottom: 2px;">
+          <button type="button" class="showcase-tab-btn active" onclick="switchShowcaseTab('silken', 'silken_commercial.mp4', 'project_silken_flora.png', '&#x1F3AC; 60s Commercial', this)">
+            &#x1F3AC; 60s Ad
+          </button>
+          <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('silken', 'silken_site_walkthrough.mp4', 'silken_bloom_elegance.png', '&#x1F4BB; Site Walkthrough', this)">
+            &#x1F4BB; Walkthrough
+          </button>
+        </div>
+        <div class="web-video-box">
+          <button type="button" class="video-sound-pill" id="silken-sound-pill" onclick="toggleVideoSound('silken', this)" title="Click to Turn Sound On">
+            <svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+            <span class="sound-text">Muted &#8226; Turn Sound On</span>
+          </button>
+          <video id="silken-video" src="silken_commercial.mp4" poster="project_silken_flora.png" autoplay muted loop playsinline controls preload="auto"></video>
+        </div>
+        <div class="showcase-video-caption">
+          <span id="silken-caption">&#x1F3AC; 60s Commercial</span>
+          <span class="pill">&#x1F338; Silken Flora</span>
+        </div>
+        <div class="web-card-header">
+          <div class="web-card-avatar">&#x1F338;</div>
+          <div class="web-card-titles">
+            <h3>Silken Flora Boutique</h3>
+            <span class="sub">E-Commerce &#8226; Floral Brand Identity</span>
           </div>
         </div>
-        <div class="short-info-box">
-          <div class="short-title">KAWAII GN</div>
-          <div class="short-category">Gift Naming</div>
-          <a href="https://youtube.com/shorts/fIVMJ_rrnVM" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
-            <span>Watch</span>
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-          </a>
+        <p class="web-card-desc">
+          Bespoke digital brand identity and storefront mock project for a handcrafted floral boutique in Solano, Nueva Vizcaya. Includes custom bouquet studio UX and 4K commercial pacing.
+        </p>
+        <div class="web-mini-thumbs">
+          <div class="web-mini-thumb" onclick="openImageLightbox('project_silken_flora.png', 'Silken Flora &#8226; Handcrafted Forever Blooms Hero Poster')" title="Click to view">
+            <img src="project_silken_flora.png" alt="Silken Flora Hero">
+          </div>
+          <div class="web-mini-thumb" onclick="openImageLightbox('silken_bloom_elegance.png', 'Silken Flora &#8226; Bloom Elegance Poster')" title="Click to view">
+            <img src="silken_bloom_elegance.png" alt="Bloom Elegance">
+          </div>
+          <div class="web-mini-thumb" onclick="openImageLightbox('silken_bridal.jpg', 'Silken Flora &#8226; Cascading Bridal Bouquet')" title="Click to view">
+            <img src="silken_bridal.jpg" alt="Silken Bridal">
+          </div>
+          <div class="web-mini-thumb" onclick="openImageLightbox('silken_bloom_box.jpg', 'Silken Flora &#8226; Everlasting Bloom Box')" title="Click to view">
+            <img src="silken_bloom_box.jpg" alt="Bloom Box">
+          </div>
+        </div>
+        <div class="showcase-tags" style="margin-top: 4px;">
+          <span class="showcase-tag">&#x1F338; Brand Identity</span>
+          <span class="showcase-tag">&#x1F4BB; Web UI</span>
+          <span class="showcase-tag">&#x1F3AC; 60s Commercial</span>
         </div>
       </div>
 
-      <!-- 2. Joker GN -->
-      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('58W8OpoXSP8', 'Joker GN', 'Kinetic Character FX')">
-        <div class="short-phone-notch"></div>
-        <div class="short-phone-screen">
-          <img src="yt_short2.jpg" alt="Joker GN" class="short-phone-thumb" loading="lazy">
-          <div class="short-phone-overlay">
-            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
-            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
-            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+      <!-- Showcase 02: The Informata -->
+      <div class="web-project-card">
+        <div class="showcase-tabs-bar" style="margin-bottom: 2px;">
+          <button type="button" class="showcase-tab-btn active" onclick="switchShowcaseTab('informata', 'informata_intro.mp4', 'project_informata_banner.jpg', '&#x1F3AC; Broadcast Intro', this)">
+            &#x1F3AC; Intro
+          </button>
+          <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('informata', 'informata_showcase.mp4', 'project_informata_logo.jpg', '&#x1F4FA; Showcase', this)">
+            &#x1F4FA; Showcase
+          </button>
+          <button type="button" class="showcase-tab-btn" onclick="switchShowcaseTab('informata', 'informata_commercial.mp4', 'informata_card1.jpg', '&#x1F3A5; Reel', this)">
+            &#x1F3A5; Reel
+          </button>
+        </div>
+        <div class="web-video-box">
+          <button type="button" class="video-sound-pill" id="informata-sound-pill" onclick="toggleVideoSound('informata', this)" title="Click to Turn Sound On">
+            <svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+            <span class="sound-text">Muted &#8226; Turn Sound On</span>
+          </button>
+          <video id="informata-video" src="informata_intro.mp4" poster="project_informata_banner.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+        </div>
+        <div class="showcase-video-caption">
+          <span id="informata-caption">&#x1F3AC; Broadcast Intro</span>
+          <span class="pill">&#x1F4F0; The Informata</span>
+        </div>
+        <div class="web-card-header">
+          <div class="web-card-avatar">&#x2712;&#xFE0F;</div>
+          <div class="web-card-titles">
+            <h3>The Informata Publication</h3>
+            <span class="sub">Aldersgate College &#8226; Broadcast Media</span>
           </div>
         </div>
-        <div class="short-info-box">
-          <div class="short-title">Joker GN</div>
-          <div class="short-category">Motion FX</div>
-          <a href="https://youtube.com/shorts/58W8OpoXSP8" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
-            <span>Watch</span>
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-          </a>
+        <p class="web-card-desc">
+          Official editorial publication and multimedia broadcast identity for Aldersgate College (<em>"Eyewitness to Evolving Stories"</em>). Directed editorial board graphics, broadcast motion, and news portal styling.
+        </p>
+        <div class="web-mini-thumbs">
+          <div class="web-mini-thumb" onclick="openImageLightbox('project_informata_banner.jpg', 'The Informata &#8226; Editorial Board Banner')" title="Click to view">
+            <img src="project_informata_banner.jpg" alt="Informata Banner">
+          </div>
+          <div class="web-mini-thumb" onclick="openImageLightbox('project_informata_logo.jpg', 'The Informata &#8226; 3D Gold Seal')" title="Click to view">
+            <img src="project_informata_logo.jpg" alt="Informata Seal">
+          </div>
+          <div class="web-mini-thumb" onclick="openImageLightbox('informata_card1.jpg', 'The Informata &#8226; Editorial Staff 1')" title="Click to view">
+            <img src="informata_card1.jpg" alt="Staff 01">
+          </div>
+          <div class="web-mini-thumb" onclick="openImageLightbox('informata_card2.jpg', 'The Informata &#8226; Editorial Staff 2')" title="Click to view">
+            <img src="informata_card2.jpg" alt="Staff 02">
+          </div>
+        </div>
+        <div class="showcase-tags" style="margin-top: 4px;">
+          <span class="showcase-tag">&#x1F4F0; Editorial Design</span>
+          <span class="showcase-tag">&#x1F3A5; Broadcast Motion</span>
+          <span class="showcase-tag">&#x270D;&#xFE0F; Journalism</span>
         </div>
       </div>
 
-      <!-- 3. KYLIE Gift Naming -->
-      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('uR5Mh79LqkE', 'KYLIE Gift Naming', 'Gift Naming Animation')">
-        <div class="short-phone-notch"></div>
-        <div class="short-phone-screen">
-          <img src="yt_short3.jpg" alt="KYLIE Gift Naming" class="short-phone-thumb" loading="lazy">
-          <div class="short-phone-overlay">
-            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
-            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
-            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+      <!-- Showcase 03: The Matcha Society -->
+      <div class="web-project-card">
+        <div class="showcase-tabs-bar" style="margin-bottom: 2px;">
+          <button type="button" class="showcase-tab-btn active">
+            &#x1F3AC; 30s TV Commercial
+          </button>
+        </div>
+        <div class="web-video-box">
+          <button type="button" class="video-sound-pill" id="matcha-sound-pill" onclick="toggleVideoSound('matcha', this)" title="Click to Turn Sound On">
+            <svg class="sound-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+            <span class="sound-text">Muted &#8226; Turn Sound On</span>
+          </button>
+          <video id="matcha-video" src="matcha_commercial.mp4" poster="matcha_poster1.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+        </div>
+        <div class="showcase-video-caption">
+          <span id="matcha-caption">&#x1F3AC; 30s TV Commercial Ad</span>
+          <span class="pill">&#x1F375; Matcha Society</span>
+        </div>
+        <div class="web-card-header">
+          <div class="web-card-avatar">&#x1F375;</div>
+          <div class="web-card-titles">
+            <h3>The Matcha Society</h3>
+            <span class="sub">Artisanal Beverage &#8226; Storefront UI</span>
           </div>
         </div>
-        <div class="short-info-box">
-          <div class="short-title">KYLIE GN</div>
-          <div class="short-category">Gift Naming</div>
-          <a href="https://youtube.com/shorts/uR5Mh79LqkE" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
-            <span>Watch</span>
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- 4. GWPO Gift Naming -->
-      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('KKvEawEffuY', 'GWPO Gift Naming', 'Kinetic 3D Typography')">
-        <div class="short-phone-notch"></div>
-        <div class="short-phone-screen">
-          <img src="yt_short4.jpg" alt="GWPO Gift Naming" class="short-phone-thumb" loading="lazy">
-          <div class="short-phone-overlay">
-            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
-            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
-            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
+        <p class="web-card-desc">
+          Artisanal ceremonial matcha and craft coffee house branding. Features Japanese minimalist aesthetics, kinetic typography TV ad, product packaging lineup, and e-commerce experience.
+        </p>
+        <div class="web-mini-thumbs">
+          <div class="web-mini-thumb" onclick="openImageLightbox('matcha_poster1.jpg', 'The Matcha Society &#8226; Signature Matcha Poster')" title="Click to view">
+            <img src="matcha_poster1.jpg" alt="Matcha Signature">
+          </div>
+          <div class="web-mini-thumb" onclick="openImageLightbox('matcha_poster2.jpg', 'The Matcha Society &#8226; Craft Cold Brew')" title="Click to view">
+            <img src="matcha_poster2.jpg" alt="Matcha Hojicha">
+          </div>
+          <div class="web-mini-thumb" onclick="openImageLightbox('matcha_poster3.png', 'The Matcha Society &#8226; Bottled Lineup Packaging')" title="Click to view">
+            <img src="matcha_poster3.png" alt="Matcha Lineup">
+          </div>
+          <div class="web-mini-thumb" onclick="openImageLightbox('matcha_full_site.png', 'The Matcha Society &#8226; Storefront UI Design')" title="Click to view">
+            <img src="matcha_full_site.png" alt="Matcha Storefront">
           </div>
         </div>
-        <div class="short-info-box">
-          <div class="short-title">GWPO GN</div>
-          <div class="short-category">Gift Naming</div>
-          <a href="https://youtube.com/shorts/KKvEawEffuY" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
-            <span>Watch</span>
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- 5. DENISE Gift Naming -->
-      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('qr_kUTrDDrs', 'DENISE Gift Naming', 'Gift Naming Animation')">
-        <div class="short-phone-notch"></div>
-        <div class="short-phone-screen">
-          <img src="yt_short5.jpg" alt="DENISE Gift Naming" class="short-phone-thumb" loading="lazy">
-          <div class="short-phone-overlay">
-            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
-            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
-            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
-          </div>
-        </div>
-        <div class="short-info-box">
-          <div class="short-title">DENISE GN</div>
-          <div class="short-category">Gift Naming</div>
-          <a href="https://youtube.com/shorts/qr_kUTrDDrs" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
-            <span>Watch</span>
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- 6. YIEE Gift Naming -->
-      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('_MeCJ8pOu3E', 'YIEE Gift Naming', 'Character Animation FX')">
-        <div class="short-phone-notch"></div>
-        <div class="short-phone-screen">
-          <img src="yt_short6.jpg" alt="YIEE Gift Naming" class="short-phone-thumb" loading="lazy">
-          <div class="short-phone-overlay">
-            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
-            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
-            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
-          </div>
-        </div>
-        <div class="short-info-box">
-          <div class="short-title">YIEE GN</div>
-          <div class="short-category">Gift Naming</div>
-          <a href="https://youtube.com/shorts/_MeCJ8pOu3E" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
-            <span>Watch</span>
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- 7. KYLIE Animation -->
-      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('bkmrGzmrekg', 'KYLIE Animation', '3D Motion Animation')">
-        <div class="short-phone-notch"></div>
-        <div class="short-phone-screen">
-          <img src="yt_short7.jpg" alt="KYLIE Animation" class="short-phone-thumb" loading="lazy">
-          <div class="short-phone-overlay">
-            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
-            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
-            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
-          </div>
-        </div>
-        <div class="short-info-box">
-          <div class="short-title">KYLIE</div>
-          <div class="short-category">3D Animation</div>
-          <a href="https://youtube.com/shorts/bkmrGzmrekg" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
-            <span>Watch</span>
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- 8. LYRA Gift Naming -->
-      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('92DuV87W4LU', 'LYRA Gift Naming', '3D Gift Naming & Character Motion')">
-        <div class="short-phone-notch"></div>
-        <div class="short-phone-screen">
-          <img src="yt_short8.jpg" alt="LYRA Gift Naming" class="short-phone-thumb" loading="lazy">
-          <div class="short-phone-overlay">
-            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
-            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
-            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
-          </div>
-        </div>
-        <div class="short-info-box">
-          <div class="short-title">LYRA GN</div>
-          <div class="short-category">Gift Naming</div>
-          <a href="https://youtube.com/shorts/92DuV87W4LU" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
-            <span>Watch</span>
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- 9. OSAWA Gift Naming -->
-      <div class="short-phone-card reveal" onclick="openYouTubeShortModal('LgRHr6JlbsQ', 'OSAWA Gift Naming', '3D Gift Naming & Character Motion')">
-        <div class="short-phone-notch"></div>
-        <div class="short-phone-screen">
-          <img src="yt_short9.jpg" alt="OSAWA Gift Naming" class="short-phone-thumb" loading="lazy">
-          <div class="short-phone-overlay">
-            <div class="short-status-bar"><span>9:41</span><span>5G</span></div>
-            <div class="short-play-wrap"><div class="short-play-btn">&#x25B6;</div></div>
-            <div class="short-bottom-label"><span>Short</span><span>&#x25B6; Play</span></div>
-          </div>
-        </div>
-        <div class="short-info-box">
-          <div class="short-title">OSAWA GN</div>
-          <div class="short-category">Gift Naming</div>
-          <a href="https://youtube.com/shorts/LgRHr6JlbsQ" target="_blank" rel="noopener noreferrer" class="short-yt-link" onclick="event.stopPropagation()">
-            <span>Watch</span>
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 22c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 2c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
-          </a>
+        <div class="showcase-tags" style="margin-top: 4px;">
+          <span class="showcase-tag">&#x1F375; Brand Identity</span>
+          <span class="showcase-tag">&#x1F3AC; 30s TV Ad</span>
+          <span class="showcase-tag">&#x1F4BB; Storefront UI</span>
         </div>
       </div>
     </div>
@@ -3631,20 +3806,10 @@
       spotlight.style.top = e.clientY + 'px';
     });
 
-    // 7. Interactive 3D Parallax Tilt on Hero Photo & Logo
+    // 7. Clean Static Alignment on Hero Photo (3D Disabled)
     const heroPhoto = document.getElementById('heroPhotoFrame');
     if (heroPhoto) {
-      window.addEventListener('mousemove', (e) => {
-        const rect = heroPhoto.getBoundingClientRect();
-        const x = e.clientX - (rect.left + rect.width / 2);
-        const y = e.clientY - (rect.top + rect.height / 2);
-        const rotX = (y / rect.height) * -8;
-        const rotY = (x / rect.width) * 8;
-        heroPhoto.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
-      });
-      heroPhoto.addEventListener('mouseleave', () => {
-        heroPhoto.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-      });
+      heroPhoto.style.transform = 'none';
     }
 
     // 8. Interactive Video Showcase Modal (Plays Uploaded Commercial Video, Drives & YouTube Shorts)
@@ -3950,7 +4115,7 @@
     }
 
     // Sync native video control volume/mute events and video click
-    ['silken', 'informata', 'matcha'].forEach(id => {
+    ['journal', 'h2o', 'lyra', 'silken', 'informata', 'matcha'].forEach(id => {
       const vid = document.getElementById(id + '-video');
       const pill = document.getElementById(id + '-sound-pill');
       if (vid) {
@@ -4056,6 +4221,11 @@
         }
       });
     });
+  </script>
+  <script>
+    if (window.location.search.includes('clean=1') || window.location.hash.includes('clean')) {
+      document.body.classList.add('clean-preview');
+    }
   </script>
 </body>
 </html>
