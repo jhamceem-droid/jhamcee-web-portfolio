@@ -3578,9 +3578,22 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.02, rootMargin: '120px 0px 120px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    function checkReveals() {
+      document.querySelectorAll('.reveal:not(.active)').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 160 && rect.bottom > -160) {
+          el.classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkReveals, { passive: true });
+    window.addEventListener('load', checkReveals);
+    document.addEventListener('DOMContentLoaded', checkReveals);
+    setTimeout(checkReveals, 100);
 
     // Handle Direct Hash Linking & Instant Scroll
     if (window.location.hash) {
