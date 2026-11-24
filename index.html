@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- YouTube IFrame API for Background Music -->
-  <script src="https://www.youtube.com/iframe_api"></script>
   <style>
     /* Reset & Base System */
     *, *::before, *::after {
@@ -69,8 +68,7 @@
     }
 
     /* Clean preview mode for screenshot thumbnails */
-    body.clean-preview .host-strip,
-    body.clean-preview .audio-pill-widget {
+    body.clean-preview .host-strip {
       display: none !important;
     }
 
@@ -110,6 +108,40 @@
       -webkit-backdrop-filter: blur(3px);
       z-index: -3;
       pointer-events: none;
+    }
+
+    /* Centered Fixed Background Brand Watermark */
+    .site-background-center-logo {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(680px, 78vw);
+      max-height: 75vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0.18;
+      filter: drop-shadow(0 0 50px rgba(212, 175, 55, 0.45));
+      transition: opacity 0.4s ease;
+      will-change: transform, opacity;
+    }
+
+    .site-background-center-logo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(1.1) contrast(1.08);
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .site-background-center-logo {
+        width: min(340px, 85vw);
+        opacity: 0.15;
+      }
     }
 
     /* Interactive Floating Gold Particles Canvas */
@@ -2207,70 +2239,6 @@
       box-shadow: 0 10px 25px rgba(245, 217, 122, 0.6);
     }
 
-    /* Interactive Floating Audio Equalizer Widget */
-    .audio-pill-widget {
-      position: fixed;
-      bottom: 24px;
-      left: 24px;
-      z-index: 100;
-      background: rgba(14, 11, 8, 0.9);
-      border: 1px solid var(--border-gold);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: 9999px;
-      padding: 8px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.2);
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-
-    .audio-pill-widget:hover {
-      border-color: var(--gold-light);
-      box-shadow: 0 8px 28px rgba(212, 175, 55, 0.35);
-      transform: translateY(-2px);
-    }
-
-    .equalizer-bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 2.5px;
-      height: 14px;
-    }
-
-    .equalizer-bars span {
-      width: 2.5px;
-      background: var(--gold-primary);
-      border-radius: 2px;
-      animation: eqBar 1.2s ease-in-out infinite alternate;
-    }
-
-    .equalizer-bars span:nth-child(1) { height: 6px; animation-delay: 0.1s; }
-    .equalizer-bars span:nth-child(2) { height: 13px; animation-delay: 0.3s; }
-    .equalizer-bars span:nth-child(3) { height: 8px; animation-delay: 0.2s; }
-    .equalizer-bars span:nth-child(4) { height: 12px; animation-delay: 0.4s; }
-
-    .equalizer-bars.paused span {
-      animation-play-state: paused;
-      height: 3px !important;
-      opacity: 0.5;
-    }
-
-    @keyframes eqBar {
-      0% { height: 3px; }
-      100% { height: 14px; }
-    }
-
-    .audio-pill-text {
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-    }
-
     /* Video Introduction Modal */
     .video-modal-backdrop {
       position: fixed;
@@ -2379,17 +2347,6 @@
       text-align: center;
     }
 
-    /* Hidden YouTube Player */
-    #yt-player-container {
-      position: fixed;
-      top: -9999px;
-      left: -9999px;
-      width: 1px;
-      height: 1px;
-      opacity: 0;
-      pointer-events: none;
-    }
-
     /* Scroll animations */
     .reveal {
       opacity: 0;
@@ -2426,17 +2383,15 @@
 </head>
 <body>
 
-  <!-- Hidden YouTube Background Music Player (Morning Piano Music) -->
-  <div id="yt-player-container">
-    <div id="yt-player"></div>
-  </div>
-
   <!-- Scroll Progress Bar -->
   <div id="progress-bar"></div>
 
   <!-- 1. FIXED Website Background (Not Scrollable) -->
   <div class="site-background"></div>
   <div class="site-background-overlay"></div>
+  <div class="site-background-center-logo">
+    <img src="logo.png" alt="Jhamcee Eve Miran Logo Watermark">
+  </div>
 
   <!-- Interactive Ethereal Golden Particles Canvas -->
   <canvas id="particle-canvas"></canvas>
@@ -2521,7 +2476,7 @@
         </p>
         <div class="hero-cta-group">
           <!-- Resume CTA Button linking to Google Docs -->
-          <a href="https://docs.google.com/document/d/14fUvTU3-ZGVhouRakO5tNvDa5ulJ2rEQ/edit?usp=drivesdk&ouid=108290393413478515857&rtpof=true&sd=true" target="_blank" class="btn-resume">
+          <a href="https://drive.google.com/file/d/1WHuVgogbW5fS01VHJr5s27826FBgTwKC/view?usp=sharing" target="_blank" class="btn-resume">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
             View Resume
           </a>
@@ -3707,43 +3662,6 @@
 
   <!-- Back to Top Floating Button -->
   <button type="button" class="btn-back-top" id="backToTopBtn" title="Back to Top">↑</button>
-
-  <!-- Interactive Floating Audio Equalizer Widget (Off by default for quiet environments) -->
-  <div class="audio-pill-widget" id="audioToggleBtn" title="Play Calm Background Piano Music">
-    <div class="equalizer-bars paused" id="eqBars">
-      <span></span><span></span><span></span><span></span>
-    </div>
-    <span class="audio-pill-text" id="audioBtnText">Play Music</span>
-  </div>
-
-  <!-- Video Introduction Spotlight Modal -->
-  <div class="video-modal-backdrop" id="videoIntroModal">
-    <div class="video-modal-container">
-      <button type="button" class="modal-close-btn" id="closeVideoIntroBtn">✕</button>
-      <h3 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.7rem; color: var(--gold-light);" id="modalTitle">Video Introduction • Jhamcee Eve Miran</h3>
-      <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px;" id="modalSubtitle">Jhamcee Eve Miran • Visual Artist, Video Editor &amp; Digital Professional</p>
-      
-      <div class="modal-video-stage" id="modalVideoStage" style="margin-top: 14px; position: relative; border-radius: 16px; overflow: hidden; background: #000; border: 1px solid var(--border-gold-subtle); display: flex; align-items: center; justify-content: center; min-height: 260px;">
-        <video id="modalVideoPlayer" src="video_introduction.mp4" controls playsinline preload="auto" style="width: 100%; max-height: 480px; display: block; margin: 0 auto; object-fit: contain;"></video>
-        <iframe id="modalShortsIframe" src="" style="width: 100%; max-width: 320px; height: 500px; border: none; border-radius: 12px; display: none; aspect-ratio: 9/16;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-
-      <p class="modal-intro-text" id="modalDesc" style="margin-top: 14px; font-size: 0.82rem; color: #ede6dc; line-height: 1.6;">
-        Welcome to my creative portfolio! Watch my personal video introduction — covering my background in visual design, video editing, customer service, and audio transcription.
-      </p>
-
-      <div id="modalButtonsRow" style="margin-top: 18px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-        <a href="https://docs.google.com/document/d/14fUvTU3-ZGVhouRakO5tNvDa5ulJ2rEQ/edit?usp=drivesdk&ouid=108290393413478515857&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="btn-drive-watch" style="font-size: 0.72rem; width: auto; padding: 6px 14px;">
-          View Resume ↗
-        </a>
-        <a href="mailto:jhamceem@gmail.com" class="btn-drive-watch" style="font-size: 0.72rem; width: auto; padding: 6px 14px;">
-          Direct Message ✉
-        </a>
-        <a href="video_introduction.mp4" download="Jhamcee_Eve_Miran_Video_Introduction.mp4" class="btn-drive-watch" style="font-size: 0.72rem; background: var(--grad-gold-btn-hover); width: auto; padding: 6px 14px;">
-          Download Video MP4 ↓
-        </a>
-      </div>
-    </div>
   </div>
 
   <!-- Lightbox Modal for Full Size Project Assets -->
@@ -3826,64 +3744,6 @@
       }, 60);
     }
 
-    // 3. YouTube Background Music: Off by Default (Recruiter & Quiet Environment Friendly)
-    // Soft volume (18%) - Serene, peaceful morning piano music available on click
-    let ytPlayer = null;
-    let isMusicPlaying = false;
-
-    window.onYouTubeIframeAPIReady = function() {
-      ytPlayer = new YT.Player('yt-player', {
-        height: '1',
-        width: '1',
-        videoId: 'AQ43u_CbGig', // Morning Meditation [a calm piano music session]
-        playerVars: {
-          autoplay: 0,
-          loop: 1,
-          playlist: 'AQ43u_CbGig,J7y2-L-0fJ4',
-          controls: 0,
-          disablekb: 1,
-          fs: 0,
-          modestbranding: 1,
-          rel: 0
-        },
-        events: {
-          'onReady': (event) => {
-            event.target.setVolume(18);
-            updateAudioWidgetState(false);
-          }
-        }
-      });
-    };
-
-    // Floating Audio Pill Toggle
-    const audioToggleBtn = document.getElementById('audioToggleBtn');
-    const eqBars = document.getElementById('eqBars');
-    const audioBtnText = document.getElementById('audioBtnText');
-
-    function updateAudioWidgetState(playing) {
-      isMusicPlaying = playing;
-      if (playing) {
-        eqBars.classList.remove('paused');
-        audioBtnText.textContent = 'Morning Piano • Playing';
-      } else {
-        eqBars.classList.add('paused');
-        audioBtnText.textContent = 'Play Music';
-      }
-    }
-
-    if (audioToggleBtn) {
-      audioToggleBtn.addEventListener('click', () => {
-        if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') return;
-        if (isMusicPlaying) {
-          ytPlayer.pauseVideo();
-          updateAudioWidgetState(false);
-        } else {
-          ytPlayer.setVolume(18);
-          ytPlayer.playVideo();
-          updateAudioWidgetState(true);
-        }
-      });
-    }
 
     // 4. Interactive Ethereal Golden Particles Canvas
     const canvas = document.getElementById('particle-canvas');
@@ -4058,7 +3918,7 @@
       if (modalButtonsRow) {
         if (videoSrc === 'video_introduction.mp4') {
           modalButtonsRow.innerHTML = `
-            <a href="https://docs.google.com/document/d/14fUvTU3-ZGVhouRakO5tNvDa5ulJ2rEQ/edit?usp=drivesdk&ouid=108290393413478515857&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="btn-drive-watch" style="font-size: 0.72rem; width: auto; padding: 6px 14px;">
+            <a href="https://drive.google.com/file/d/1WHuVgogbW5fS01VHJr5s27826FBgTwKC/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-drive-watch" style="font-size: 0.72rem; width: auto; padding: 6px 14px;">
               View Resume ↗
             </a>
             <a href="mailto:jhamceem@gmail.com" class="btn-drive-watch" style="font-size: 0.72rem; width: auto; padding: 6px 14px;">
@@ -4081,11 +3941,6 @@
             </a>
           `;
         }
-      }
-
-      // Pause morning piano background music while watching video
-      if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
-        try { ytPlayer.pauseVideo(); } catch(e){}
       }
       videoModal.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -4118,11 +3973,6 @@
           </button>
         `;
       }
-
-      // Pause morning piano background music
-      if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
-        try { ytPlayer.pauseVideo(); } catch(e){}
-      }
       videoModal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
@@ -4137,10 +3987,6 @@
       if (modalShortsIframe) {
         modalShortsIframe.src = '';
         modalShortsIframe.style.display = 'none';
-      }
-      // Resume morning piano music if it was previously playing
-      if (isMusicPlaying && ytPlayer && typeof ytPlayer.playVideo === 'function') {
-        try { ytPlayer.playVideo(); } catch(e){}
       }
     }
 
@@ -4294,22 +4140,12 @@
           pillEl.classList.add('sound-active');
           pillEl.innerHTML = SVG_SOUND_ON + '<span class="sound-text">Sound On &#8226; Click to Mute</span>';
         }
-
-        // Pause morning piano background music
-        if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
-          try { ytPlayer.pauseVideo(); } catch(e){}
-        }
       } else {
         // Turn sound off / mute
         vid.muted = true;
         if (pillEl) {
           pillEl.classList.remove('sound-active');
           pillEl.innerHTML = SVG_SOUND_MUTED + '<span class="sound-text">Muted &#8226; Turn Sound On</span>';
-        }
-
-        // Resume morning piano music if no other unmuted video is playing
-        if (isMusicPlaying && ytPlayer && typeof ytPlayer.playVideo === 'function') {
-          try { ytPlayer.playVideo(); } catch(e){}
         }
       }
     }
@@ -4334,16 +4170,10 @@
               pill.innerHTML = SVG_SOUND_MUTED + '<span class="sound-text">Muted &#8226; Turn Sound On</span>';
             }
             const anySoundPlaying = Array.from(document.querySelectorAll('video')).some(v => !v.muted && v.volume > 0 && !v.paused && !v.ended);
-            if (!anySoundPlaying && isMusicPlaying && ytPlayer && typeof ytPlayer.playVideo === 'function') {
-              try { ytPlayer.playVideo(); } catch(err){}
-            }
           } else {
             if (pill) {
               pill.classList.add('sound-active');
               pill.innerHTML = SVG_SOUND_ON + '<span class="sound-text">Sound On &#8226; Click to Mute</span>';
-            }
-            if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
-              try { ytPlayer.pauseVideo(); } catch(err){}
             }
           }
         });
@@ -4397,31 +4227,7 @@
           closeImageLightbox();
         }
       }
-    });
-
-    // 14. Auto-pause background morning piano music when any video plays with sound
-    document.querySelectorAll('video').forEach(vid => {
-      vid.addEventListener('play', () => {
-        if (!vid.muted && vid.volume > 0) {
-          if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
-            try { ytPlayer.pauseVideo(); } catch(e){}
-          }
-        }
-      });
-      vid.addEventListener('pause', () => {
-        const anySoundPlaying = Array.from(document.querySelectorAll('video')).some(v => !v.muted && v.volume > 0 && !v.paused && !v.ended);
-        if (!anySoundPlaying && isMusicPlaying && ytPlayer && typeof ytPlayer.playVideo === 'function') {
-          try { ytPlayer.playVideo(); } catch(e){}
-        }
-      });
-      vid.addEventListener('ended', () => {
-        const anySoundPlaying = Array.from(document.querySelectorAll('video')).some(v => !v.muted && v.volume > 0 && !v.paused && !v.ended);
-        if (!anySoundPlaying && isMusicPlaying && ytPlayer && typeof ytPlayer.playVideo === 'function') {
-          try { ytPlayer.playVideo(); } catch(e){}
-        }
-      });
-    });
-  </script>
+    });</script>
   <script>
     if (window.location.search.includes('clean=1') || window.location.hash.includes('clean')) {
       document.body.classList.add('clean-preview');
